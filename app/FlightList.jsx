@@ -1,15 +1,14 @@
 import React from 'react';
 import Flight from './Flight.jsx'
 
-const FlightList = (flights) => {
-    const flightsPop = flights;
+const FlightList = ({flights}) => {
     return (
         <div>
             {
-                ( typeof flightsPop.flights == 'undefined' || flightsPop.flights.length === 0 ) ?
+                ( typeof flights == 'undefined' || flights.length === 0 ) ?
                     <p>Nie znaleziono lotow</p> :
-                    flightsPop.flights.map(flight =>
-                        <Flight flight={flight}/>
+                    flights.map(flight =>
+                        <Flight {...flight}/>
                     )
             }
         </div>

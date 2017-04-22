@@ -13,7 +13,7 @@ class FindFlight extends React.Component {
                     Skad: <input type="text"/>Dokad : <input type="text"/>
                     <button>Szukaj</button>
                 </from>
-                <FlightList flights={this.props.flights}/>
+                <FlightList {...this.props}/>
             </div>
         )
     }

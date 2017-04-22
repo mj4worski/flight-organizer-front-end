@@ -28,7 +28,7 @@ class App extends React.Component {
         fetch('http://192.168.0.115:8080/lot', {
             method: 'get'
         }).then(function (response) {
-            this.setState({flights: response})
+            this.setState({flights: response.json()})
 
         }).catch(function (err) {
            console.error(err)
@@ -46,7 +46,7 @@ class App extends React.Component {
                     </ul>
                     <hr/>
                     <Route exact path="/" component={MainPage}/>
-                    <Route path="/findFlight" component={() => <FindFlight flights={this.state.flights}/>}/>
+                    <Route path="/findFlight" component={() => <FindFlight {...this.state}/>}/>
                 </div>
             </Router>
         )
