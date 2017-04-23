@@ -1,6 +1,14 @@
 import C from './constants';
 import {v4} from 'node-uuid';
 
+export const findFlight = (from, to) => (
+    {
+        type: C.FIND_FLIGHT,
+        fron,
+        to
+    }
+);
+
 export const removeColor = id =>
     ({
         type: C.REMOVE_COLOR,

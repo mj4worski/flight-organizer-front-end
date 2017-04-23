@@ -9,34 +9,26 @@ import MainPage from './MainPage.jsx'
 class App extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            // flights: [
-            //     {
-            //         from: "Krakow",
-            //         to: "Warszawa"
-            //     },
-            //     {
-            //         from: "Krakow",
-            //         to: "Katowice"
-            //     }
-            //
-            // ]
-        }
+        this.state = {};
+        this.findFlights = this.findFlights.bind(this);
     }
 
-    componentWillMount() {
-        fetch('http://192.168.0.115:8080/lot', {
+    findFlights(from, to) {
+        const url = new URL('http://192.168.0.115:8080/lot'),
+            params = {from: from, to: to};
+        Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
+        fetch(url, {
             method: 'get'
-        }).then(function (response) {
-            this.setState({flights: response.json()})
-
-        }).catch(function (err) {
-           console.error(err)
-        });
+        })
+            .then(response => response.json())
+            .then(flights => {
+                this.setState({flights})
+            });
     }
 
 
     render() {
+        const { findFlights } = this;
         return (
             <Router>
                 <div>
@@ -46,7 +38,9 @@ class App extends React.Component {
                     </ul>
                     <hr/>
                     <Route exact path="/" component={MainPage}/>
-                    <Route path="/findFlight" component={() => <FindFlight {...this.state}/>}/>
+                    <Route path="/findFlight" component={
+                        () => <FindFlight onFind={findFlights}
+                                              {...this.state}/>}/>
                 </div>
             </Router>
         )

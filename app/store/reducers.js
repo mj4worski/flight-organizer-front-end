@@ -1,5 +1,14 @@
 import C from './constants.js';
 
+export const flights = (state = {} , action) => {
+  switch (action.type) {
+      case C.FIND_FLIGHT:
+          return [
+
+          ];
+  }
+};
+
 export const color = (state = {}, action) => {
     switch (action.type) {
         case C.ADD_COLOR:
