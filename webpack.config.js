@@ -1,11 +1,12 @@
 var path = require('path');
 var webpack = require('webpack');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 var BUILD_PATH = path.resolve(__dirname + '/build');
-var APP_PATH = path.resolve(__dirname + '/app');
+var APP_PATH = path.resolve(__dirname + '/src/app');
 
 module.exports = {
-    entry: APP_PATH + '/Index.jsx',
+    entry: APP_PATH + '/App.jsx',
     output: {
         path: BUILD_PATH,
         filename: 'bundle.js',
@@ -30,7 +31,7 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                loader: "style-loader!css-loader"
+                loader: 'style-loader!css-loader?modules=true&localIdentName=[name]__[local]___[hash:base64:5]'
             }
         ]
     }

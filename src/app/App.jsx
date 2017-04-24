@@ -2,9 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import 'whatwg-fetch'
+import styles from './stylesheet/app.css'
 
-import FindFlight from './FindFlight.jsx';
+import FindFlight from '../flight/FindFlight.jsx';
 import MainPage from './MainPage.jsx'
+
+const TopMenu = () => {
+    return (
+        <ul className={styles.topnav}>
+            <li><Link to="/" className={styles.active}>Strona glowna</Link></li>
+            <li><Link to="/findFlight">Znajdz lot</Link></li>
+        </ul>
+    )
+};
 
 class App extends React.Component {
     constructor(props) {
@@ -28,23 +38,22 @@ class App extends React.Component {
 
 
     render() {
-        const { findFlights } = this;
+        const {findFlights} = this;
         return (
             <Router>
                 <div>
-                    <ul>
-                        <li><Link to="/">Strona glowna</Link></li>
-                        <li><Link to="/findFlight">Znajdz lot</Link></li>
-                    </ul>
-                    <hr/>
+                    <TopMenu/>
+                    <img className={styles.logo} src="images/logo.png"  />
                     <Route exact path="/" component={MainPage}/>
                     <Route path="/findFlight" component={
                         () => <FindFlight onFind={findFlights}
-                                              {...this.state}/>}/>
+                                          {...this.state}/>}/>
                 </div>
             </Router>
         )
     }
 }
 
-ReactDOM.render(<App/>, document.getElementById('app'));
+ReactDOM.render(
+    <App/>
+    , document.getElementById('app'));
