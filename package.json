@@ -20,6 +20,7 @@
     "bootstrap": "^3.3.7",
     "latest-version": "^3.1.0",
     "node-uuid": "^1.4.8",
+    "prop-types": "^15.5.8",
     "react": "^15.4.2",
     "react-bootstrap": "^0.30.10",
     "react-dom": "^15.4.2",

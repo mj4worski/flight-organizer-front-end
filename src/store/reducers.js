@@ -1,11 +1,17 @@
 import C from './constants.js';
 
-export const flights = (state = {} , action) => {
+export const flights = (state = [] , action) => {
   switch (action.type) {
       case C.FIND_FLIGHT:
+          // return state.filter( flight => {
+          //     return flight.from === action.from && flight.to === action.to
+          // });
           return [
-
+              ...state,
+              {from: action.from , to: action.to}
           ];
+      default:
+          return state;
   }
 };
 
@@ -28,30 +34,5 @@ export const color = (state = {}, action) => {
                 };
         default:
             return state;
-    }
-};
-
-export const colors = (state = {}, action) => {
-    switch (action.type) {
-        case C.ADD_COLOR :
-            return [
-                ...state,
-                color({}, action)
-            ];
-        case C.RATE_COLOR :
-            return state.map(
-                c => color(c, action)
-            );
-        default :
-            return state
-    }
-};
-
-export const sort = (state = "SORTED_BY_DATE", action) => {
-    switch (action.type) {
-        case C.SORT_COLORS:
-            return action.sortBy;
-        default :
-            return state
     }
 };

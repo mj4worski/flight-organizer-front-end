@@ -1,40 +1,46 @@
-import React from 'react'
-import FlightList from './FlightList.jsx'
 import mainStyles from '../app/stylesheet/mainpage.css'
-import styles from './stylesheet/findflight.css'
+import React from 'react'
+import PropTypes from 'prop-types';
+import FlightList from './FlightList.jsx'
+import FindFlightsFrom from './FindFlightsForm.jsx'
+import {findFlight} from '../store/actions.js'
+
 
 class FindFlight extends React.Component {
-    constructor(props) {
-        super(props);
-        this._from = {};
-        this._to = {};
-        this.find = this.find.bind(this);
+
+
+    constructor(props, context) {
+        super(props, context);
+        this.flights= ["A"];
+        this.onFindClick = this.onFindClick.bind(this);
     }
 
-    find(e) {
+
+    onFindClick(from, to, e) {
         e.preventDefault();
-        this.props.onFind(this._from.value, this._to.value);
-        this._from.value = '';
-        this._to.value = '';
-        this._from.focus();
-        this._to.focus();
-    }
+        console.log("COntext" , this);
+        this.context.store.dispatch(findFlight(from.value, to.value));
+        from.value = '';
+        to.value = '';
+        from.focus();
+        to.focus();
+    };
 
-    render() {
+
+    render(){
         return (
             <div className={mainStyles.mainpage}>
                 <section >
-                    <p className={styles.findforminfo}>Znajdz swoj wymarzony lot</p>
-                    <form onSubmit={this.find}>
-                        <p>Skad: <input ref={input => this._from = input} type="text"/></p>
-                        <p>Dokad : <input ref={input => this._to = input} type="text"/></p>
-                        <button>Szukaj</button>
-                    </form>
-                    <FlightList {...this.props}/>
+                    <FindFlightsFrom onFind={this.onFindClick}/>
+                    <FlightList {...this.context.store.getState()}/>
                 </section>
             </div>
         )
     }
 }
+
+FindFlight.contextTypes = {
+    store: PropTypes.object
+};
 
 export default FindFlight;

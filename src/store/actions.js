@@ -4,7 +4,7 @@ import {v4} from 'node-uuid';
 export const findFlight = (from, to) => (
     {
         type: C.FIND_FLIGHT,
-        fron,
+        from,
         to
     }
 );

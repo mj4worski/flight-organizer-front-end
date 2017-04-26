@@ -6,7 +6,7 @@ const Flight = ({from ,to ,date}) => {
             <h1>Znaleziony lot to:</h1>
             <p>Skad : {from}</p>
             <p>Dokad : {to}</p>
-            <p>Kiedy : {date.dayOfWeek} {date.month} {date.year}</p>
+            {/*<p>Kiedy : {date.dayOfWeek} {date.month} {date.year}</p>*/}
         </section>
     )
 };
