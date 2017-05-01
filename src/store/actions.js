@@ -1,11 +1,10 @@
 import C from './constants';
 import {v4} from 'node-uuid';
 
-export const findFlight = (from, to) => (
+export const findFlight = (flights) => (
     {
         type: C.FIND_FLIGHT,
-        from,
-        to
+        flights,
     }
 );
 

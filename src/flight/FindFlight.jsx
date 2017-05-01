@@ -8,22 +8,22 @@ import {findFlight} from '../store/actions.js'
 
 class FindFlight extends React.Component {
 
-
     constructor(props, context) {
         super(props, context);
-        this.flights= ["A"];
-        this.onFindClick = this.onFindClick.bind(this);
+        this.findFlightAPI = this.findFlightAPI.bind(this);
     }
 
-
-    onFindClick(from, to, e) {
-        e.preventDefault();
-        console.log("COntext" , this);
-        this.context.store.dispatch(findFlight(from.value, to.value));
-        from.value = '';
-        to.value = '';
-        from.focus();
-        to.focus();
+    findFlightAPI(from, to) {
+        const url = new URL('http://localhost:8080/findFlights'),
+            params = {from: from, to: to};
+        Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
+        fetch(url, {
+            method: 'get'
+        })
+            .then(response => response.json())
+            .then(flights => {
+                this.context.store.dispatch(findFlight(flights));
+            });
     };
 
 
@@ -31,7 +31,7 @@ class FindFlight extends React.Component {
         return (
             <div className={mainStyles.mainpage}>
                 <section >
-                    <FindFlightsFrom onFind={this.onFindClick}/>
+                    <FindFlightsFrom onFind={this.findFlightAPI}/>
                     <FlightList {...this.context.store.getState()}/>
                 </section>
             </div>

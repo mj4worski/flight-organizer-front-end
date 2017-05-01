@@ -39,26 +39,12 @@ class App extends React.Component {
         this.unsubscribe()
     }
 
-    // flights(from, to) {
-    //     const url = new URL('http://192.168.0.115:8080/lot'),
-    //         params = {from: from, to: to};
-    //     Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
-    //     fetch(url, {
-    //         method: 'get'
-    //     })
-    //         .then(response => response.json())
-    //         .then(flights => {
-    //             this.setState({flights})
-    //         });
-    // }
-
-
     render() {
         return (
             <Router>
                 <div>
                     <TopMenu/>
-                    <img className={styles.logo} src="images/logo.png"/>
+                    <img className={styles.logo} src="images/logo.jpg"/>
                     <Route exact path="/" component={MainPage}/>
                     <Route path="/findFlight" component={FindFlight}/>
                 </div>

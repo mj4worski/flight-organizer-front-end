@@ -8,12 +8,11 @@ const FlightList = ({flights}) => {
                 ( typeof flights == 'undefined' || flights.length === 0 ) ?
                     <p>Nie znaleziono lotow</p> :
                     flights.map(flight =>
-                        <Flight {...flight}/>
+                        <Flight key={flight.id} {...flight}/>
                     )
             }
         </div>
     )
 };
-
 
 export default FlightList;
