@@ -1,21 +1,17 @@
 import {flights} from './reducers'
-import {createStore, combineReducers} from 'redux';
-import {v4} from 'node-uuid';
+import {createStore, applyMiddleware} from 'redux';
+import thunk from 'redux-thunk'
 
 
-const initialState = {
-    flights: [
-        {
-            id: v4(),
-            departureFrom: "Barcelona",
-            arrivalTo: "Cracow"
-        }
-    ]
-};
+// const initialState = {
+//     isLoggin: false
+// };
+
+const middleware = [ thunk ]
 
 const store = createStore(
-    combineReducers({flights}),
-    initialState
+    flights,
+    applyMiddleware(...middleware)
 );
 
 export default store;

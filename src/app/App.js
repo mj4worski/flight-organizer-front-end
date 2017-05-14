@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 
 import 'whatwg-fetch'
 import styles from './stylesheet/app.css'
-import FindFlight from '../flight/FindFlight.js';
+import FindFlights from '../containers/FindFlights';
 import MainPage from './MainPage.jsx'
 import Login from './Login.jsx'
 
@@ -30,11 +30,10 @@ export default class App extends React.Component {
                 <div>
                     <TopMenu/>
                     <img className={styles.logo} src="images/logo.jpg"/>
-
                     <div className={styles.mainpage}>
                         <section >
                             <Route exact path="/" component={MainPage}/>
-                            <Route path="/findFlight" component={FindFlight}/>
+                            <Route path="/findFlight" component={FindFlights}/>
                             {/*<Route path="/login" component={Login}/>*/}
                         </section>
                     </div>

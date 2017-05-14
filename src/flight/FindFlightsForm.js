@@ -1,13 +1,12 @@
 import styles from '../app/stylesheet/form.css'
 import React from 'react'
 
-const FindFlightsForm = ({ dispatch}) => {
+const FindFlightsForm = ({onFindFlights}) => {
 
-    let _from , _to;
-
+    let _from, _to;
     const onSubmit = e => {
         e.preventDefault();
-        dispatch(_from.value, _to.value);
+        onFindFlights(_from.value, _to.value);
         _from.value = '';
         _to.value = '';
         _from.focus();

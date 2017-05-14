@@ -1,0 +1,22 @@
+[
+  {
+    "id": "1",
+    "departureFrom": "Barcelona",
+    "arrivalTo": "Krakow"
+  },
+  {
+    "id": "2",
+    "departureFrom": "Paryz",
+    "arrivalTo": "Warszawa"
+  },
+  {
+    "id": "3",
+    "departureFrom": "Moskwa",
+    "arrivalTo": "Rzym"
+  },
+  {
+    "id": "4",
+    "departureFrom": "Gdansk",
+    "arrivalTo": "Amsterdam"
+  }
+]
