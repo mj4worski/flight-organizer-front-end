@@ -2,10 +2,10 @@ var path = require('path');
 var webpack = require('webpack');
 
 var BUILD_PATH = path.resolve(__dirname + '/build');
-var APP_PATH = path.resolve(__dirname + '/src/app');
+var APP_PATH = path.resolve(__dirname + '/src');
 
 module.exports = {
-    entry: APP_PATH + '/App.jsx',
+    entry: APP_PATH + '/index.js',
     output: {
         path: BUILD_PATH,
         filename: 'bundle.js',

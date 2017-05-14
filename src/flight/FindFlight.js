@@ -1,9 +1,7 @@
-import mainStyles from '../app/stylesheet/mainpage.css'
 import React from 'react'
-import PropTypes from 'prop-types';
-import FlightList from './FlightList.jsx'
 import FindFlightsFrom from './FindFlightsForm.jsx'
-import {findFlight} from '../store/actions.js'
+import {findFlight} from '../actions/'
+import FindFlightList from '../containers/FindFlightList'
 
 
 class FindFlight extends React.Component {
@@ -14,11 +12,12 @@ class FindFlight extends React.Component {
     }
 
     findFlightAPI(from, to) {
-        const url = new URL('http://localhost:8080/findFlights'),
+        const url = new URL('http://localhost:8080/public/findFlights'),
             params = {from: from, to: to};
         Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
         fetch(url, {
-            method: 'get'
+            method: 'GET',
+            credentials: 'include'
         })
             .then(response => response.json())
             .then(flights => {
@@ -27,20 +26,14 @@ class FindFlight extends React.Component {
     };
 
 
-    render(){
+    render() {
         return (
-            <div className={mainStyles.mainpage}>
-                <section >
-                    <FindFlightsFrom onFind={this.findFlightAPI}/>
-                    <FlightList {...this.context.store.getState()}/>
-                </section>
+            <div>
+                <FindFlightsFrom onFind={this.findFlightAPI}/>
+                <FindFlightList />
             </div>
         )
     }
 }
-
-FindFlight.contextTypes = {
-    store: PropTypes.object
-};
 
 export default FindFlight;

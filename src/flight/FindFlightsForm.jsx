@@ -1,13 +1,13 @@
-import styles from './stylesheet/findflight.css'
+import styles from '../app/stylesheet/form.css'
 import React from 'react'
 
-const FindFlightsForm = ({onFind}) => {
+const FindFlightsForm = ({ dispatch}) => {
 
     let _from , _to;
 
     const onSubmit = e => {
         e.preventDefault();
-        onFind(_from.value, _to.value);
+        dispatch(_from.value, _to.value);
         _from.value = '';
         _to.value = '';
         _from.focus();
@@ -16,7 +16,7 @@ const FindFlightsForm = ({onFind}) => {
 
     return (
         <div>
-            <p className={styles.findforminfo}>Znajdz swoj wymarzony lot</p>
+            <p className={styles.header}>Znajdz swoj wymarzony lot</p>
             <form onSubmit={onSubmit}>
                 <p>Skad: <input ref={input => _from = input} type="text"/></p>
                 <p>Dokad : <input ref={input => _to = input} type="text"/></p>

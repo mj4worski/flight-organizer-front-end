@@ -1,5 +1,4 @@
 import React from 'react'
-import styles from './stylesheet/mainpage.css'
 
 class MainPage extends React.Component {
     constructor(props) {
@@ -8,7 +7,7 @@ class MainPage extends React.Component {
 
     render() {
         return (
-            <div className={styles.mainpage} >Mazurek skomentowała sprawę dziś w Sejmie podczas briefingu prasowego. ­ Rafał Piasecki nie jest
+            <div>Mazurek skomentowała sprawę dziś w Sejmie podczas briefingu prasowego. ­ Rafał Piasecki nie jest
                 członkiem Prawa i Sprawiedliwości. Zrezygnował z klubu radnych, nie pełni już żadnych funkcji i bardzo bym
                 państwa prosiła o to, by jednak jego z nami nie utożsamiać ­ mówiła do dziennikarzy rzeczniczka PiS.
                 Dodała też, że adwokat żony byłego bydgoskiego radnego wystąpił już wcześniej z prośbą o interwencję do
