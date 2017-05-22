@@ -4,8 +4,8 @@ import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import 'whatwg-fetch'
 import styles from './stylesheet/app.css'
 import FindFlights from '../containers/FindFlights';
-import MainPage from './MainPage.jsx'
-import Login from './Login.jsx'
+import MainPage from './MainPage.js'
+import Login from '../containers/Login'
 
 
 const TopMenu = () => {
@@ -34,7 +34,7 @@ export default class App extends React.Component {
                         <section >
                             <Route exact path="/" component={MainPage}/>
                             <Route path="/findFlight" component={FindFlights}/>
-                            {/*<Route path="/login" component={Login}/>*/}
+                            <Route path="/login" component={Login}/>
                         </section>
                     </div>
                 </div>

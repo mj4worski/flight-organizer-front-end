@@ -7,22 +7,21 @@ import {
 import {findFlights} from '../actions'
 
 const FindFlightContainer = ({flights, findFlights}) => {
-    console.log(flights)
     return (
         <div>
             <FindFlightsFrom onFindFlights={findFlights}/>
-            <FlightList flights={flights}/>
+            <FlightList {...flights}/>
         </div>
     )
-}
+};
 
 const mapStateToProps = (state) => ({
-    flights: state.flights,
-})
+    flights: state.flights ? state.flights : []
+});
 
 const FindFlights = connect(
     mapStateToProps,
     {findFlights}
-)(FindFlightContainer)
+)(FindFlightContainer);
 
 export default FindFlights

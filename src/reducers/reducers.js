@@ -11,3 +11,15 @@ export const flights = (state = {}, action) => {
             return state;
     }
 };
+
+export const isUserLogin = (state = {}, action) => {
+    switch (action.type){
+        case constants.COULD_LOGIN:
+            return {
+                ...state,
+                isUserLogin: action.isUserLogin
+            };
+        default:
+            return state;
+    }
+};

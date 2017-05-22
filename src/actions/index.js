@@ -1,15 +1,25 @@
 import C from '../constants';
-import flights from '../state/dataApi'
+import {
+    getFlights,
+    checkLogin
+} from '../state/dataApi'
 
-const foundFlights = (flights) => (
-    {
+const foundFlights = (flights) => ({
         type: C.FOUND_FLIGHTS,
         flights,
-    }
-);
+});
 
 export const findFlights = (departureFrom, arrivalTo) => dispatch => {
-    flights.getFlights(departureFrom, arrivalTo, flights => {
-        dispatch(foundFlights(flights))
-    })
-}
+    const p = getFlights(departureFrom, arrivalTo);
+    p.then(flights => dispatch(foundFlights(flights)));
+};
+
+const couldLogin = (isUserLogin) => ({
+    type: C.COULD_LOGIN,
+    isUserLogin
+});
+
+export const canLogin = (login, password) => dispatch => {
+    const p = checkLogin(login,password);
+    p.then(isUserLogin => dispatch(couldLogin(isUserLogin)))
+};

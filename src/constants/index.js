@@ -1,7 +1,6 @@
 const constants = {
     FOUND_FLIGHTS: "FOUND_FLIGHTS",
-    REQUEST_POSTS: 'REQUEST_POSTS',
-    RECEIVE_POSTS: 'RECEIVE_POSTS'
+    COULD_LOGIN:"COULD_LOGIN"
 };
 
 export default constants;
