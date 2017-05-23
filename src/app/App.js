@@ -1,12 +1,15 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
-
+import {
+    Router,
+    Route,
+    Link
+} from 'react-router-dom';
 import 'whatwg-fetch'
-import styles from './stylesheet/app.css'
+import styles from './stylesheet/app.css';
 import FindFlights from '../containers/FindFlights';
-import MainPage from './MainPage.js'
-import Login from '../containers/Login'
-
+import MainPage from './MainPage.js';
+import Login from '../containers/Login';
+import history from'./HistoryConfiguration';
 
 const TopMenu = () => {
     return (
@@ -18,6 +21,7 @@ const TopMenu = () => {
     )
 };
 
+
 export default class App extends React.Component {
 
     constructor(props) {
@@ -26,7 +30,7 @@ export default class App extends React.Component {
 
     render() {
         return (
-            <Router>
+            <Router history={history}>
                 <div>
                     <TopMenu/>
                     <img className={styles.logo} src="images/logo.jpg"/>

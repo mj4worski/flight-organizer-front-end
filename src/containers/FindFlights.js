@@ -4,13 +4,16 @@ import {
     FlightList,
     FindFlightsFrom
 } from '../flight/'
-import {findFlights} from '../actions'
+import {
+    findFlights,
+    reservationFlight
+} from '../actions'
 
-const FindFlightContainer = ({flights, findFlights}) => {
+const FindFlightContainer = ({flights, findFlights, reservationFlight}) => {
     return (
         <div>
             <FindFlightsFrom onFindFlights={findFlights}/>
-            <FlightList flights={flights}/>
+            <FlightList flights={flights} reservationFlight={reservationFlight}/>
         </div>
     )
 };
@@ -21,7 +24,7 @@ const mapStateToProps = (state) => ({
 
 const FindFlights = connect(
     mapStateToProps,
-    {findFlights}
+    {findFlights, reservationFlight}
 )(FindFlightContainer);
 
 export default FindFlights

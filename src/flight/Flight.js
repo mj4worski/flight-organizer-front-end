@@ -6,7 +6,7 @@ const Flight = ({flight, onReservationClick}) => {
             <h1>Znaleziony lot to:</h1>
             <p>Skad : {flight.departureFrom}</p>
             <p>Dokad : {flight.arrivalTo}</p>
-            <button onClick={onReservationClick}>Rezerwacja</button>
+            <button onClick={(e) => onReservationClick(flight)}>Rezerwacja</button>
         </section>
     )
 };
