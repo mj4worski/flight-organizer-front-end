@@ -1,5 +1,5 @@
 import _flights from './flights.json'
-import _users from './users.json'
+import _usersFromDB from './users.json'
 
 export const getFlights = (departureFrom, arrivalTo) => {
     return new Promise((resolve, reject) => {
@@ -10,13 +10,13 @@ export const getFlights = (departureFrom, arrivalTo) => {
 
 export const checkLogin = (login, password) => {
     return new Promise((resolve, reject) => {
-        let exist = false;
-        for (var user of _users) {
+        let existingUser = {};
+        for (var user of _usersFromDB) {
             if (user.login === login && user.password === password) {
-                exist = true;
-                break
+                existingUser = Object.assign({}, user, {isUserLogin: true});
+                break;
             }
         }
-        resolve(exist)
+        resolve(existingUser)
     });
 }

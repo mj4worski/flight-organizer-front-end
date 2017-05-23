@@ -1,11 +1,12 @@
 import React from 'react'
 
-const Flight = ({departureFrom ,arrivalTo}) => {
+const Flight = ({flight, onReservationClick}) => {
     return (
         <section>
             <h1>Znaleziony lot to:</h1>
-            <p>Skad : {departureFrom}</p>
-            <p>Dokad : {arrivalTo}</p>
+            <p>Skad : {flight.departureFrom}</p>
+            <p>Dokad : {flight.arrivalTo}</p>
+            <button onClick={onReservationClick}>Rezerwacja</button>
         </section>
     )
 };

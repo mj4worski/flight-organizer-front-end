@@ -4,22 +4,22 @@ import {
     checkLogin
 } from '../state/dataApi'
 
-const foundFlights = (flights) => ({
-        type: C.FOUND_FLIGHTS,
+const findFlightsAction = (flights) => ({
+        type: C.FIND_FLIGHTS,
         flights,
 });
 
 export const findFlights = (departureFrom, arrivalTo) => dispatch => {
     const p = getFlights(departureFrom, arrivalTo);
-    p.then(flights => dispatch(foundFlights(flights)));
+    p.then(flights => dispatch(findFlightsAction(flights)));
 };
 
-const couldLogin = (isUserLogin) => ({
-    type: C.COULD_LOGIN,
-    isUserLogin
+const canLogin = (user) => ({
+    type: C.CAN_LOGIN,
+    user
 });
 
-export const canLogin = (login, password) => dispatch => {
+export const tryLogin = (login, password) => dispatch => {
     const p = checkLogin(login,password);
-    p.then(isUserLogin => dispatch(couldLogin(isUserLogin)))
+    p.then(user => dispatch(canLogin(user)))
 };

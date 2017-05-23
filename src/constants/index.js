@@ -1,6 +1,6 @@
 const constants = {
-    FOUND_FLIGHTS: "FOUND_FLIGHTS",
-    COULD_LOGIN:"COULD_LOGIN"
+    FIND_FLIGHTS: "FIND_FLIGHTS",
+    CAN_LOGIN:"CAN_LOGIN"
 };
 
 export default constants;

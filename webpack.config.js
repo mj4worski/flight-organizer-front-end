@@ -16,6 +16,7 @@ module.exports = {
         inline: true,
         contentBase: BUILD_PATH,
         port: 3333,
+        historyApiFallback: true,
     },
     module: {
         loaders: [
