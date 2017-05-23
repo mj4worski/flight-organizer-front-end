@@ -10,13 +10,13 @@ const FindFlightContainer = ({flights, findFlights}) => {
     return (
         <div>
             <FindFlightsFrom onFindFlights={findFlights}/>
-            <FlightList {...flights}/>
+            <FlightList flights={flights}/>
         </div>
     )
 };
 
 const mapStateToProps = (state) => ({
-    flights: state.flights ? state.flights : []
+    flights: state.flights
 });
 
 const FindFlights = connect(
