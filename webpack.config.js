@@ -25,14 +25,15 @@ module.exports = {
                 loader: 'babel-loader',
                 exclude: /node_modules/,
                 query: {
-                    presets: ['es2015', 'react'],
+                    presets: ['es2016', 'react'],
                     plugins: ["transform-es2015-destructuring", "transform-object-rest-spread"]
                 }
             },
             {
-                test: /\.css$/,
-                loader: 'style-loader!css-loader?modules=true&localIdentName=[name]__[local]___[hash:base64:5]'
-            }
+                test: /\.scss$/,
+                include: APP_PATH,
+                loaders: ["style-loader", "css-loader", "sass-loader"]
+            },
         ]
     }
 };

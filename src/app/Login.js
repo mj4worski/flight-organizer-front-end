@@ -1,7 +1,7 @@
 import {connect} from 'react-redux'
 import React from 'react'
-import LoginFrom from '../app/LoginForm'
-import {tryLogin as onLoginClick} from '../actions'
+import LoginFrom from './LoginForm'
+import {tryLogin as onLoginClick} from '../actions/index'
 
 const Login = connect (
     null,

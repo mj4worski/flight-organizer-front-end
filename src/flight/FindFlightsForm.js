@@ -1,4 +1,3 @@
-import styles from '../app/stylesheet/form.css'
 import React from 'react'
 
 const FindFlightsForm = ({onFindFlights}) => {
@@ -15,7 +14,7 @@ const FindFlightsForm = ({onFindFlights}) => {
 
     return (
         <div>
-            <p className={styles.header}>Znajdz swoj wymarzony lot</p>
+            <p>Znajdz swoj wymarzony lot</p>
             <form onSubmit={onSubmit}>
                 <p>Skad: <input ref={input => _from = input} type="text"/></p>
                 <p>Dokad : <input ref={input => _to = input} type="text"/></p>

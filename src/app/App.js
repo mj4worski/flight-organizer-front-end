@@ -5,19 +5,39 @@ import {
     Link
 } from 'react-router-dom';
 import 'whatwg-fetch'
-import styles from './stylesheet/app.css';
-import FindFlights from '../containers/FindFlights';
+import './App.scss';
+import FindFlights from '../flight/FindFlights';
 import MainPage from './MainPage.js';
-import Login from '../containers/Login';
+import Login from './Login';
 import history from'./HistoryConfiguration';
+import cx from 'classnames';
 
-const TopMenu = () => {
+const Header = () => {
+
+    const style = cx('nav-bar__item-visual');
     return (
-        <ul className={styles.topnav}>
-            <li><Link to="/" className={styles.active}>Strona glowna</Link></li>
-            <li><Link to="/findFlight">Znajdz lot</Link></li>
-            <li><Link to="/login">Logowanie</Link></li>
-        </ul>
+        <div className='header'>
+            <ul className='nav-bar'>
+                <li className='nav-bar__item'><Link to="/" className={style}>Strona glowna</Link></li>
+                <li className='nav-bar__item'><Link to="/findFlight" className={style}>Znajdz lot</Link></li>
+                <li className='nav-bar__item'><Link to="/login" className={style}>Logowanie</Link></li>
+            </ul>
+            <div>
+                <img className='header__logo' src="images/logo.jpg"/>
+            </div>
+        </div>
+    )
+};
+
+const Content = () => {
+    return (
+        <div className="content">
+            <section >
+                <Route exact path="/" component={MainPage}/>
+                <Route path="/findFlight" component={FindFlights}/>
+                <Route path="/login" component={Login}/>
+            </section>
+        </div>
     )
 };
 
@@ -32,15 +52,8 @@ export default class App extends React.Component {
         return (
             <Router history={history}>
                 <div>
-                    <TopMenu/>
-                    <img className={styles.logo} src="images/logo.jpg"/>
-                    <div className={styles.mainpage}>
-                        <section >
-                            <Route exact path="/" component={MainPage}/>
-                            <Route path="/findFlight" component={FindFlights}/>
-                            <Route path="/login" component={Login}/>
-                        </section>
-                    </div>
+                    <Header/>
+                    <Content/>
                 </div>
             </Router>
         )

@@ -1,4 +1,4 @@
-import styles from '../app/stylesheet/form.css'
+import './form.scss'
 import React from 'react'
 
 const LoginForm = ({onLoginClick}) => {
@@ -14,7 +14,7 @@ const LoginForm = ({onLoginClick}) => {
 
     return (
         <div>
-            <p className={styles.header}> Podaj login i aktualne hasło</p>
+            <p> Podaj login i aktualne hasło</p>
             <form onSubmit={onSubmit}>
                 <p>Login: <input ref={input => _login = input} type="text"/></p>
                 <p>Hasło : <input ref={input => _password = input} type="password"/></p>

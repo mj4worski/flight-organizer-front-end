@@ -3,11 +3,11 @@ import React from 'react'
 import {
     FlightList,
     FindFlightsFrom
-} from '../flight/'
+} from './index'
 import {
     findFlights,
     reservationFlight
-} from '../actions'
+} from '../actions/index'
 
 const FindFlightContainer = ({flights, findFlights, reservationFlight}) => {
     return (
