@@ -1,5 +1,6 @@
-import styles from '../app/stylesheet/form.css'
-import React from 'react'
+import React from 'react';
+import {connect} from 'react-redux';
+import {tryLogin as onLoginClick} from '../actions/index';
 
 const LoginForm = ({onLoginClick}) => {
     let _login, _password;
@@ -14,7 +15,7 @@ const LoginForm = ({onLoginClick}) => {
 
     return (
         <div>
-            <p className={styles.header}> Podaj login i aktualne hasło</p>
+            <p> Podaj login i aktualne hasło</p>
             <form onSubmit={onSubmit}>
                 <p>Login: <input ref={input => _login = input} type="text"/></p>
                 <p>Hasło : <input ref={input => _password = input} type="password"/></p>
@@ -24,4 +25,9 @@ const LoginForm = ({onLoginClick}) => {
     )
 };
 
-export default LoginForm;
+const Login = connect(
+    null,
+    {onLoginClick}
+)(LoginForm);
+
+export default Login;

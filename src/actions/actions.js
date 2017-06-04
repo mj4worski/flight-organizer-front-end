@@ -1,4 +1,4 @@
-import C from '../constants';
+import {CAN_LOGIN, FIND_FLIGHTS} from '../constants';
 import {
     getFlights,
     checkLogin
@@ -6,7 +6,7 @@ import {
 import {push} from 'react-router-redux'
 
 const findFlightsAction = (flights) => ({
-    type: C.FIND_FLIGHTS,
+    type: FIND_FLIGHTS,
     flights,
 });
 
@@ -16,7 +16,7 @@ export const findFlights = (departureFrom, arrivalTo) => dispatch => {
 };
 
 const canLogin = (user) => ({
-    type: C.CAN_LOGIN,
+    type: CAN_LOGIN,
     user
 });
 

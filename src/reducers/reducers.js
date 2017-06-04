@@ -1,8 +1,8 @@
-import constants from '../constants'
+import {CAN_LOGIN , FIND_FLIGHTS} from '../constants'
 
 export const flights = (state = [], action) => {
     switch (action.type) {
-        case constants.FIND_FLIGHTS:
+        case FIND_FLIGHTS:
             return [
                 ...action.flights
             ];
@@ -13,7 +13,7 @@ export const flights = (state = [], action) => {
 
 export const user = (state = {}, action) => {
     switch (action.type) {
-        case constants.CAN_LOGIN:
+        case CAN_LOGIN:
             return Object.assign({}, action.user);
         default:
             return state;
@@ -26,7 +26,7 @@ const initStateForUI = {
 
 export const UI = (state = {...initStateForUI}, action) => {
     switch (action.type){
-        case constants.CAN_LOGIN:
+        case CAN_LOGIN:
             return Object.assign({}, state, {
                 isUserLogin: action.user.isUserLogin || false
             });
