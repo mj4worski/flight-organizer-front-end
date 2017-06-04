@@ -7,7 +7,7 @@ import {
 import {
     findFlights,
     reservationFlight
-} from '../actions/index'
+} from '../../actions/index'
 
 const FindFlightContainer = ({flights, findFlights, reservationFlight}) => {
     return (

@@ -1,5 +1,6 @@
-import './form.scss'
-import React from 'react'
+import React from 'react';
+import {connect} from 'react-redux';
+import {tryLogin as onLoginClick} from '../actions/index';
 
 const LoginForm = ({onLoginClick}) => {
     let _login, _password;
@@ -24,4 +25,9 @@ const LoginForm = ({onLoginClick}) => {
     )
 };
 
-export default LoginForm;
+const Login = connect(
+    null,
+    {onLoginClick}
+)(LoginForm);
+
+export default Login;
