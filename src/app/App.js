@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import {
     Router,
@@ -9,7 +10,6 @@ import MainPage from '../components/MainPage.js';
 import Login from '../components/Login';
 import history from'./HistoryConfiguration';
 import Header from './Header';
-
 import './App.scss'
 
 
@@ -26,20 +26,12 @@ const Content = () => {
 };
 
 
-export default class App extends React.Component {
+export default () => (
+    <Router history={history}>
+        <div>
+            <Header/>
+            <Content/>
+        </div>
+    </Router>
+)
 
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-        return (
-            <Router history={history}>
-                <div>
-                    <Header/>
-                    <Content/>
-                </div>
-            </Router>
-        )
-    }
-}

@@ -1,8 +1,8 @@
-var path = require('path');
-var webpack = require('webpack');
+const path = require('path');
+const webpack = require('webpack');
 
-var BUILD_PATH = path.resolve(__dirname + '/build');
-var APP_PATH = path.resolve(__dirname + '/src');
+const BUILD_PATH = path.resolve(__dirname + '/build');
+const APP_PATH = path.resolve(__dirname + '/src');
 
 module.exports = {
     entry: APP_PATH + '/index.js',
@@ -25,7 +25,7 @@ module.exports = {
                 loader: 'babel-loader',
                 exclude: /node_modules/,
                 query: {
-                    presets: ['es2016', 'react'],
+                    presets: ['es2016', 'react', "flow"],
                     plugins: ["transform-es2015-destructuring", "transform-object-rest-spread"]
                 }
             },
@@ -35,5 +35,5 @@ module.exports = {
                 loaders: ["style-loader", "css-loader", "sass-loader"]
             },
         ]
-    }
+    },
 };

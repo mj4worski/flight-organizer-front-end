@@ -1,11 +1,12 @@
+// @flow
 import React from 'react'
 
-const FindFlightsForm = ({onFindFlights}) => {
+export default ({findFlights} : Function) => {
 
     let _from, _to;
     const onSubmit = e => {
         e.preventDefault();
-        onFindFlights(_from.value, _to.value);
+        findFlights(_from.value, _to.value);
         _from.value = '';
         _to.value = '';
         _from.focus();
@@ -22,8 +23,5 @@ const FindFlightsForm = ({onFindFlights}) => {
             </form>
         </div>
     )
-
 };
-
-export default FindFlightsForm;
 

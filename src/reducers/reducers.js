@@ -1,8 +1,15 @@
-import {CAN_LOGIN , FIND_FLIGHTS} from '../constants'
+// @flow
+import type {
+    Action
+} from '../actions'
+import type {
+    FlightType,
+    UserType,
+} from '../state/data-flow'
 
-export const flights = (state = [], action) => {
+export const flights = (state: Array<FlightType> = [], action: Action): Array<FlightType> => {
     switch (action.type) {
-        case FIND_FLIGHTS:
+        case 'FIND_FLIGHTS':
             return [
                 ...action.flights
             ];
@@ -11,22 +18,18 @@ export const flights = (state = [], action) => {
     }
 };
 
-export const user = (state = {}, action) => {
+export const user = (state: UserType = {}, action: Action): UserType => {
     switch (action.type) {
-        case CAN_LOGIN:
+        case 'CAN_LOGIN':
             return Object.assign({}, action.user);
         default:
             return state;
     }
 };
 
-const initStateForUI = {
-    isUserLogin: false
-};
-
-export const UI = (state = {...initStateForUI}, action) => {
-    switch (action.type){
-        case CAN_LOGIN:
+export const UI = (state: Object = {}, action: Action) => {
+    switch (action.type) {
+        case 'CAN_LOGIN':
             return Object.assign({}, state, {
                 isUserLogin: action.user.isUserLogin || false
             });

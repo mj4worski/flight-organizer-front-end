@@ -1,3 +1,4 @@
+// @flow
 import {
     flights,
     user,
@@ -14,7 +15,7 @@ import {
 
 const middleware = [thunk, routerMiddleware(history)];
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 const reducers = combineReducers({
     flights,
     user,

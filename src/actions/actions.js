@@ -1,33 +1,44 @@
-import {CAN_LOGIN, FIND_FLIGHTS} from '../constants';
+// @flow
+import type {
+    FlightType,
+    UserType
+} from '../state/data-flow'
+import type {
+    Action,
+    ThunkAction,
+} from './action-flow.js'
 import {
     getFlights,
     checkLogin
 } from '../state/dataApi'
 import {push} from 'react-router-redux'
 
-const findFlightsAction = (flights) => ({
-    type: FIND_FLIGHTS,
+const findFlightsAction = (flights: Array<FlightType>): Action => ({
+    type: 'FIND_FLIGHTS',
     flights,
 });
 
-export const findFlights = (departureFrom, arrivalTo) => dispatch => {
-    const p = getFlights(departureFrom, arrivalTo);
-    p.then(flights => dispatch(findFlightsAction(flights)));
-};
-
-const canLogin = (user) => ({
-    type: CAN_LOGIN,
+const canLogin = (user: UserType): Action => ({
+    type: 'CAN_LOGIN',
     user
 });
 
-export const tryLogin = (login, password) => dispatch => {
-    const p = checkLogin(login, password);
-    p.then(user => dispatch(canLogin(user)))
-};
+export const findFlights = (departureFrom: string, arrivalTo: string): ThunkAction =>
+    dispatch => {
+        const p = getFlights(departureFrom, arrivalTo);
+        p.then(flights => dispatch(findFlightsAction(flights)));
+    };
 
-export const reservationFlight = (flight) => (dispatch, getState) => {
-    const {UI} = getState();
-    if (!UI.isUserLogin) {
-        dispatch(push("/login"));
-    }
-};
+export const tryLogin = (login: string, password: string): ThunkAction =>
+    dispatch => {
+        const p = checkLogin(login, password);
+        p.then(user => dispatch(canLogin(user)))
+    };
+
+export const reservationFlight = (flight: FlightType): ThunkAction =>
+    (dispatch, getState) => {
+        const {UI} = getState();
+        if (!UI.isUserLogin) {
+            dispatch(push("/login"));
+        }
+    };

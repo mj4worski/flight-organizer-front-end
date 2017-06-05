@@ -1,3 +1,7 @@
+// @flow
+import type {
+    FlightType
+} from '../../state/data-flow';
 import {connect} from 'react-redux'
 import React from 'react'
 import {
@@ -9,22 +13,26 @@ import {
     reservationFlight
 } from '../../actions/index'
 
-const FindFlightContainer = ({flights, findFlights, reservationFlight}) => {
+type FindFlightContainerType = {
+    flights: Array<FlightType>,
+    findFlights: Function,
+    reservationFlight: Function,
+}
+
+const FindFlightContainer = ({flights, findFlights, reservationFlight}: FindFlightContainerType) => {
     return (
         <div>
-            <FindFlightsFrom onFindFlights={findFlights}/>
+            <FindFlightsFrom findFlights={findFlights} />
             <FlightList flights={flights} reservationFlight={reservationFlight}/>
         </div>
     )
 };
 
-const mapStateToProps = (state) => ({
-    flights: state.flights
+const mapStateToProps = ({flights}: FlightType) => ({
+    flights: flights
 });
 
-const FindFlights = connect(
+export default connect(
     mapStateToProps,
     {findFlights, reservationFlight}
 )(FindFlightContainer);
-
-export default FindFlights

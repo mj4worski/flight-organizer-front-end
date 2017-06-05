@@ -1,12 +1,13 @@
+// @ flow
 import React from 'react';
 import {connect} from 'react-redux';
-import {tryLogin as onLoginClick} from '../actions/index';
+import {tryLogin} from '../actions/index';
 
-const LoginForm = ({onLoginClick}) => {
+const LoginForm = ({tryLogin}) => {
     let _login, _password;
     const onSubmit = e => {
         e.preventDefault();
-        onLoginClick(_login.value, _password.value);
+        tryLogin(_login.value, _password.value);
         _login.value = '';
         _password.value = '';
         _login.focus();
@@ -25,9 +26,7 @@ const LoginForm = ({onLoginClick}) => {
     )
 };
 
-const Login = connect(
+export default connect(
     null,
-    {onLoginClick}
+    {tryLogin}
 )(LoginForm);
-
-export default Login;
