@@ -1,27 +1,55 @@
+/* eslint-disable no-undef */
 // @flow
-import React from 'react'
+import React from 'react';
+import type { findFlightsType } from '../../actions';
 
-export default ({findFlights} : Function) => {
+type Props = {
+    onClick: findFlightsType
+}
 
-    let _from, _to;
-    const onSubmit = e => {
-        e.preventDefault();
-        findFlights(_from.value, _to.value);
-        _from.value = '';
-        _to.value = '';
-        _from.focus();
-        _to.focus();
+type State = {
+    from: string,
+    to: string,
+}
+
+class From extends React.Component<void, Props, State> {
+  constructor(props : Props) {
+    super(props);
+    this.state = {
+      from: '',
+      to: '',
     };
+  }
+  state: State;
 
-    return (
-        <div>
-            <p>Znajdz swoj wymarzony lot</p>
-            <form onSubmit={onSubmit}>
-                <p>Skad: <input ref={input => _from = input} type="text"/></p>
-                <p>Dokad : <input ref={input => _to = input} type="text"/></p>
-                <button>Szukaj</button>
-            </form>
-        </div>
-    )
-};
+  handleSubmit = (e: Event) => {
+    const { onClick } = this.props;
+    e.preventDefault();
+    onClick(this.state.from, this.state.to);
+  };
+
+  handleChangeFrom(event : Event) {
+    if (event.target instanceof HTMLInputElement) {
+      this.setState({ from: event.target.value });
+    }
+  }
+
+  handleChangeTo(event : Event) {
+    if (event.target instanceof HTMLInputElement) {
+      this.setState({ to: event.target.value });
+    }
+  }
+
+  render() {
+    return (<div>
+      <p>Znajdz swoj wymarzony lot</p>
+      <form onSubmit={this.handleSubmit}>
+        <p>Skad: <input type="text" onChange={this.handleChangeFrom} /></p>
+        <p>Dokad : <input type="text" onChange={this.handleChangeTo} /></p>
+        <button>Szukaj</button>
+      </form>
+    </div>);
+  }
+}
+export default From;
 

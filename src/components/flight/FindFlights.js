@@ -1,38 +1,42 @@
 // @flow
-import type {
-    FlightType
-} from '../../state/data-flow';
-import {connect} from 'react-redux'
-import React from 'react'
+import React from 'react';
+import { connect } from 'react-redux';
+import type { FlightType } from '../../state/types';
+import type{
+    reservationFlightType as reservationType,
+    findFlightsType,
+} from '../../actions';
 import {
     FlightList,
-    FindFlightsFrom
-} from './index'
+    FindFlightsFrom,
+} from './index';
 import {
     findFlights,
-    reservationFlight
-} from '../../actions/index'
+    reservationFlight,
+} from '../../actions';
 
-type FindFlightContainerType = {
+type FindFlightType = {
     flights: Array<FlightType>,
-    findFlights: Function,
-    reservationFlight: Function,
+    find: findFlightsType,
+    reservation: reservationType,
 }
 
-const FindFlightContainer = ({flights, findFlights, reservationFlight}: FindFlightContainerType) => {
-    return (
-        <div>
-            <FindFlightsFrom findFlights={findFlights} />
-            <FlightList flights={flights} reservationFlight={reservationFlight}/>
-        </div>
-    )
-};
+const FindFlightContainer = ({ flights, find, reservation }: FindFlightType) =>
+    (
+      <div>
+        <FindFlightsFrom onClick={find} />
+        <FlightList flights={flights} reservationFlight={reservation} />
+      </div>
+    );
 
-const mapStateToProps = ({flights}: FlightType) => ({
-    flights: flights
+const mapStateToProps = ({ flights }: FlightType) => ({
+  flights,
 });
 
 export default connect(
     mapStateToProps,
-    {findFlights, reservationFlight}
+  {
+    find: findFlights,
+    reservation: reservationFlight,
+  },
 )(FindFlightContainer);

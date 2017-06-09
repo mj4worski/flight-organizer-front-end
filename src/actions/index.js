@@ -2,9 +2,8 @@
 export {
     findFlights,
     tryLogin,
-    reservationFlight
+    reservationFlight,
 } from './actions';
-//type
-export {
-    Action
-} from './action-flow.js';
+// type
+export { reservationFlightType, findFlightsType, tryLoginType } from './actions';
+export { Action } from './types';
