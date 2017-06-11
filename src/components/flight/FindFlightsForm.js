@@ -28,17 +28,17 @@ class From extends React.Component<void, Props, State> {
     onClick(this.state.from, this.state.to);
   };
 
-  handleChangeFrom(event : Event) {
+  handleChangeFrom = (event : Event) => {
     if (event.target instanceof HTMLInputElement) {
       this.setState({ from: event.target.value });
     }
-  }
+  };
 
-  handleChangeTo(event : Event) {
+  handleChangeTo = (event : Event) => {
     if (event.target instanceof HTMLInputElement) {
       this.setState({ to: event.target.value });
     }
-  }
+  };
 
   render() {
     return (<div>

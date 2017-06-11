@@ -29,17 +29,17 @@ class LoginForm extends React.Component<void, Props, State> {
     onClick(this.state.login, this.state.password);
   };
 
-  handleChangeLogin(event: Event) {
+  handleChangeLogin= (event: Event) => {
     if (event.target instanceof HTMLInputElement) {
       this.setState({ login: event.target.value });
     }
-  }
+  };
 
-  handleChangePassword(event: Event) {
+  handleChangePassword = (event: Event) => {
     if (event.target instanceof HTMLInputElement) {
       this.setState({ password: event.target.value });
     }
-  }
+  };
 
   render() {
     return (
