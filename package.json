@@ -40,6 +40,7 @@
     "babel-preset-flow": "^6.23.0",
     "babel-preset-react": "^6.23.0",
     "css-loader": "^0.28.4",
+    "empty-object": "^1.0.0",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^15.0.1",
     "eslint-plugin-import": "^2.3.0",

@@ -11,7 +11,7 @@ import type {
 import {
     getFlights,
     checkLogin,
-} from '../state/dataApi';
+} from '../api/dataApi';
 
 export type findFlightsType = (string, string) => ThunkAction;
 export type reservationFlightType = (FlightType) => ThunkAction;
@@ -27,15 +27,13 @@ const canLogin = (user: UserType): Action => ({
   user,
 });
 
-export const findFlights = (departureFrom: string, arrivalTo: string): ThunkAction =>
-    (dispatch) => {
-      const p = getFlights(departureFrom, arrivalTo);
-      p.then(flights => dispatch(findFlightsAction(flights)));
-    };
+export const findFlights = (departureFrom: string, arrivalTo: string): ThunkAction => dispatch =>
+    getFlights(departureFrom, arrivalTo).then(flights => dispatch(findFlightsAction(flights)));
 
 export const tryLogin = (login: string, password: string): ThunkAction => (dispatch) => {
-  const p = checkLogin(login, password);
-  p.then(user => dispatch(canLogin(user)));
+  checkLogin(login, password).then((isLogged) => {
+    if (isLogged) dispatch(canLogin({ login, password }));
+  });
 };
 
 export const reservationFlight = (flight: FlightType): ThunkAction => (dispatch, getState) => {
