@@ -1,20 +1,22 @@
-/* eslint-disable no-undef */
-// @ flow
+// @flow
 import React from 'react';
 import { connect } from 'react-redux';
 import type {} from '../actions';
 import { tryLogin } from '../actions/index';
 
+import type { tryLoginType } from '../actions/actions';
+
 type Props = {
-    onClick: tryLogin
+    onClick: tryLoginType
 }
 
+type DefaultProps = any;
 type State = {
     login: string,
     password: string,
 }
 
-class LoginForm extends React.Component<void, Props, State> {
+class LoginForm extends React.Component<DefaultProps, Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
@@ -22,6 +24,8 @@ class LoginForm extends React.Component<void, Props, State> {
       password: '',
     };
   }
+  state: State;
+
 
   handleSubmit = (e: Event) => {
     const { onClick } = this.props;
@@ -29,16 +33,12 @@ class LoginForm extends React.Component<void, Props, State> {
     onClick(this.state.login, this.state.password);
   };
 
-  handleChangeLogin= (event: Event) => {
-    if (event.target instanceof HTMLInputElement) {
-      this.setState({ login: event.target.value });
-    }
+  handleChangeLogin= (event: Event & {currentTarget: HTMLInputElement}) => {
+    this.setState({ login: event.currentTarget.value });
   };
 
-  handleChangePassword = (event: Event) => {
-    if (event.target instanceof HTMLInputElement) {
-      this.setState({ password: event.target.value });
-    }
+  handleChangePassword = (event: Event & {currentTarget: HTMLInputElement}) => {
+    this.setState({ password: event.currentTarget.value });
   };
 
   render() {

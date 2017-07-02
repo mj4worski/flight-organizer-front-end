@@ -5,7 +5,7 @@ import type {
 import type {
     FlightType,
     UserType,
-} from '../state/types';
+} from '../api/types';
 
 export const flights = (state: Array<FlightType> = [], action: Action): Array<FlightType> => {
   switch (action.type) {

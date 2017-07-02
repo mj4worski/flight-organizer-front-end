@@ -2,7 +2,7 @@
 import type {
     FlightType,
     UserType,
-} from '../state/types';
+} from '../api/types';
 
 type FindFlights = { type: 'FIND_FLIGHTS', flights: Array<FlightType> };
 type CanLogin = { type: 'CAN_LOGIN', user: UserType };

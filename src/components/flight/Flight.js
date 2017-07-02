@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import type { FlightType } from '../../state/types';
+import type { FlightType } from '../../api/types';
 
 type FlightComponentType = {
     flight: FlightType,
