@@ -9,7 +9,6 @@ module.exports = {
   output: {
     path: BUILD_PATH,
     filename: 'bundle.js',
-    publicPath: '/',
   },
   devtool: 'source-map',
   devServer: {
@@ -19,7 +18,7 @@ module.exports = {
     historyApiFallback: true,
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /.jsx?$/,
         loader: 'babel-loader',
@@ -31,8 +30,22 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        include: APP_PATH,
-        loaders: ['style-loader', 'css-loader', 'sass-loader'],
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader',
+        ],
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192,
+            },
+          },
+        ],
       },
     ],
   },

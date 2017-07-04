@@ -4,20 +4,38 @@
 
   &__logo {
     display: block;
-    margin: 20px auto;
-    width: 60%;
-    height: 250px;
+    //margin: 20px auto;
+    background: url("../images/logo.jpg") no-repeat;
+    background-size:100% 100%;
+    height:380px;
+    width:100%;
+  }
+
+  &__text {
+    padding: 250px;
+    text-align: center;
+    color: #342d6f;
+    font-family: 'Architects Daughter', cursive;
+    font-weight: 800;
+    opacity: 0.6;
   }
 }
 
 .nav-bar {
+  padding: 0px 10%;
+  margin: 0px;
   list-style-type: none;
+  position: fixed;
+  width: 100%;
   display: inline-flex;
-  background: #0054a7;
+  background: #fd746c;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #ff9068, #fd746c);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #ff9068, #fd746c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
   &__item {
     padding: 15px;
-    font-size: large;
-    font-weight: bolder;
+    font-size: 20px;
+    font-family: 'Architects Daughter', cursive;
     &-selected {
       text-decoration: none;
       color: white;
@@ -28,22 +46,9 @@
     }
   }
   &__item:hover:not(.active){
-    background: grey;
+    opacity: 0.5;
   }
 }
 
-//ul.topnav li a {
-//  display: block;
-//  color: white;
-//  text-align: center;
-//  padding: 14px 16px;
-//  text-decoration: none;
-//  font-family: "Verdana", serif;
-//}
-
-//ul.topnav li a:hover:not(.active) {
-//  background: #b4b1ae;
-//  color: black;
-//}
 
 

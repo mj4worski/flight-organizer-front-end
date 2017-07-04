@@ -17,8 +17,8 @@ export default () => (
         <Link to="/login" className="nav-bar__item-visual">Logowanie</Link>
       </li>
     </ul>
-    <div>
-      <img className="header__logo" src="images/logo.jpg" />
+    <div className="header__logo">
+        <h1 className="header__text">Kazda podroz ma swoj poczatek</h1>
     </div>
   </div>
 );

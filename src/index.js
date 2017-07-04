@@ -6,10 +6,6 @@ import store from './store/index';
 
 import App from './app/App';
 
-
-const f = (a: number) => a;
-f('aa');
-
 ReactDOM.render(
   <Provider store={store}>
     <App />

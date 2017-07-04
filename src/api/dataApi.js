@@ -1,6 +1,6 @@
 // @flow
 import 'whatwg-fetch';
-import type { FlightType } from '../state/types';
+import type { FlightType } from './types';
 
 type getFlightType = (string, string) => FlightType;
 
