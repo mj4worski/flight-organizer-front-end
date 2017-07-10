@@ -18,7 +18,7 @@ export default () => (
       </li>
     </ul>
     <div className="header__logo">
-        <h1 className="header__text">Kazda podroz ma swoj poczatek</h1>
+      <h1 className="header__text">Kazda podroz ma swoj poczatek</h1>
     </div>
   </div>
 );

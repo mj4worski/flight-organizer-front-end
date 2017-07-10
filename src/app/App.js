@@ -14,13 +14,11 @@ import './App.scss';
 
 
 const Content = () => (
-  <div className="content">
-    <section >
-      <Route exact path="/" component={MainPage} />
-      <Route path="/findFlight" component={FindFlights} />
-      <Route path="/login" component={Login} />
-    </section>
-  </div>
+  <section >
+    <Route exact path="/" component={MainPage} />
+    <Route path="/findFlight" component={FindFlights} />
+    <Route path="/login" component={Login} />
+  </section>
 );
 
 export default () => (
