@@ -3,16 +3,16 @@
   flex-direction: column;
 
   &__logo {
+    margin-top: 50px;
     display: block;
-    //margin: 20px auto;
     background: url("../images/logo.jpg") no-repeat;
-    background-size:100% 100%;
-    height:380px;
-    width:100%;
+    background-size: 100% 100%;
+    height: 400px;
+    width: 100%;
   }
 
   &__text {
-    padding:20% 30% 0 30%;
+    padding: 240px 30% 0 30%;
     text-align: center;
     color: #342d6f;
     font-family: 'Architects Daughter', cursive;
@@ -22,31 +22,35 @@
 }
 
 .nav-bar {
-  padding: 0px 10%;
-  margin: 0px;
+  margin: 0;
+  padding: 0;
+  height: 50px;
   list-style-type: none;
   position: fixed;
   width: 100%;
-  display: inline-flex;
-  background: #fd746c;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #ff9068, #fd746c);  /* Chrome 10-25, Safari 5.1-6 */
+  display: flex;
+  justify-content: space-around;
+  background: #fd746c; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #ff9068, #fd746c); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #ff9068, #fd746c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
   &__item {
-    padding: 15px;
-    font-size: 20px;
+    display: flex;
+    flex: 1;
+    font-size: 24px;
     font-family: 'Architects Daughter', cursive;
-    &-selected {
-      text-decoration: none;
-      color: white;
-    }
+    padding-top: 7px;
+    text-align: center;
     &-visual {
+      flex: 1;
       text-decoration: none;
       color: white;
     }
-  }
-  &__item:hover:not(.active){
-    opacity: 0.5;
+    &-visual:hover:not(.active) {
+      color: #342d6f;
+      opacity: 0.7;
+      cursor: pointer;
+    }
   }
 }
 
