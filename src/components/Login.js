@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { tryLogin } from '../actions/index';
 
 class LoginForm extends Component {
@@ -11,18 +12,17 @@ class LoginForm extends Component {
     };
   }
 
-
-  handleSubmit = (e: Event) => {
+  handleSubmit = (e) => {
     const { onClick } = this.props;
     e.preventDefault();
     onClick(this.state.login, this.state.password);
   };
 
-  handleChangeLogin= (event: Event & {currentTarget: HTMLInputElement}) => {
+  handleChangeLogin= (event) => {
     this.setState({ login: event.currentTarget.value });
   };
 
-  handleChangePassword = (event: Event & {currentTarget: HTMLInputElement}) => {
+  handleChangePassword = (event) => {
     this.setState({ password: event.currentTarget.value });
   };
 
@@ -39,6 +39,10 @@ class LoginForm extends Component {
     );
   }
 }
+
+LoginForm.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default connect(
     null,

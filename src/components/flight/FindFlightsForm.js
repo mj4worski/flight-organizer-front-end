@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class FindFlightForm extends Component {
   constructor(props) {
@@ -38,6 +39,10 @@ class FindFlightForm extends Component {
     </div>);
   }
 }
+
+FindFlightForm.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default FindFlightForm;
 

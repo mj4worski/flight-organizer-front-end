@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import {
     FlightList,
     FindFlightsFrom,
@@ -14,6 +15,11 @@ const FindFlightContainer = ({ flights, find }) => (
     <FlightList flights={flights} />
   </div>
 );
+
+FindFlightContainer.propTypes = {
+  flights: PropTypes.array.isRequired,
+  find: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = ({ flights }) => ({
   flights,

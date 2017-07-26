@@ -4,9 +4,10 @@ module.exports = {
     ],
     "parser": "babel-eslint",
     "rules": {
-        "react/jsx-filename-extension": ["error", {"extensions": [".js", ".jsx"]}]
+        'react/forbid-prop-types': [1, { forbid: ['any', 'array', 'object'] }],
+        "react/jsx-filename-extension": [0, {"extensions": [".js", ".jsx"]}],
     },
     "env": {
         "browser": true
-    }
+    },
 };
