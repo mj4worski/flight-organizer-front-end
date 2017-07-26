@@ -1,11 +1,10 @@
-// @flow
 import React from 'react';
 import {
     Router,
     Route,
 } from 'react-router-dom';
 import 'whatwg-fetch';
-import FindFlights from '../components/flight/FindFlights';
+import FindFlights from '../components/flight/FindFlightsContainer';
 import MainPage from '../components/MainPage';
 import Login from '../components/Login';
 import history from './HistoryConfiguration';

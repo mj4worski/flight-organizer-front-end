@@ -1,18 +1,13 @@
-// @flow
 import 'whatwg-fetch';
-import type { FlightType } from './types';
 
-type getFlightType = (string, string) => FlightType;
-
-
-export const getFlights: getFlightType = (departureFrom, arrivalTo) => {
-  const url = new URL('http://localhost:8080/public/findFlights');
+export const getFlights = (departureFrom, arrivalTo) => {
+  const url = new URL('http://localhost:8080/findFlights');
   const params = { departureFrom, arrivalTo };
   Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
   return fetch(url, { method: 'get', credentials: 'include' }).then(response => response.json());
 };
 
-export const checkLogin = (username: string, password: string) => {
+export const checkLogin = (username, password) => {
   const url = new URL('http://localhost:8080/login');
   const params = { username, password };
   const formBody = Object.keys(params)
@@ -24,4 +19,10 @@ export const checkLogin = (username: string, password: string) => {
     body: formBody,
     credentials: 'include',
   }).then(response => response.status === 200);
+};
+
+export const getBestPlaces = () => {
+  const url = new URL('http://localhost:8080/public/findPlaces');
+  return fetch(url, { method: 'get', credentials: 'include' })
+        .then(places => places.json());
 };

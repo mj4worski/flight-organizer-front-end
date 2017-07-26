@@ -1,40 +1,27 @@
-/* eslint-disable no-undef */
-// @flow
-import React from 'react';
-import type { findFlightsType } from '../../actions';
+import React, { Component } from 'react';
 
-type Props = {
-    onClick: findFlightsType
-}
-
-type State = {
-    from: string,
-    to: string,
-}
-
-class From extends React.Component<void, Props, State> {
-  constructor(props : Props) {
+class FindFlightForm extends Component {
+  constructor(props) {
     super(props);
     this.state = {
       from: '',
       to: '',
     };
   }
-  state: State;
 
-  handleSubmit = (e: Event) => {
+  handleSubmit = (e) => {
     const { onClick } = this.props;
     e.preventDefault();
     onClick(this.state.from, this.state.to);
   };
 
-  handleChangeFrom = (event : Event) => {
+  handleChangeFrom = (event) => {
     if (event.target instanceof HTMLInputElement) {
       this.setState({ from: event.target.value });
     }
   };
 
-  handleChangeTo = (event : Event) => {
+  handleChangeTo = (event) => {
     if (event.target instanceof HTMLInputElement) {
       this.setState({ to: event.target.value });
     }
@@ -51,5 +38,6 @@ class From extends React.Component<void, Props, State> {
     </div>);
   }
 }
-export default From;
+
+export default FindFlightForm;
 

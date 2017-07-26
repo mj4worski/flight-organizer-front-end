@@ -1,32 +1,35 @@
-// @flow
-
 import React, { Component } from 'react';
+import Place from './Place';
+import { getBestPlaces } from '../../api';
 import './BestPlace.scss';
 
 class BestPlace extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      places: [],
+    };
+  }
+
+  componentDidMount() {
+    getBestPlaces().then(places => this.setState({ places }));
+  }
+
   render() {
+    const spinnerShow = this.state.places.length === 0;
+    const { places } = this.state;
     return (
       <section className="best-place">
-        <div className="place" onClick={this}>
-          <h2 className="place__name">Magnaaa</h2><p className="place__description">Sed nisl arcu euismod sit amet nisi lorem etiam dolor
-                            veroeros et feugiat.</p>
-        </div>
-        <div className="place" onClick={this}>
-          <h2 className="place__name">Magnaaa</h2>
-          <p className="place__description">Sed nisl arcu euismod sit amet nisi lorem etiam dolor
-                            veroeros et feugiat.</p>
-        </div>
-        <div className="place" onClick={this}>
-          <h2 className="place__name">Magnaaa</h2>
-          <p className="place__description">Sed nisl arcu euismod sit amet nisi lorem etiam dolor
-                            veroeros et feugiat.</p>
-        </div>
-
-        <div className="place" onClick={this}>
-          <h2 className="place__name">Magnaaa</h2>
-          <p className="place__description">Sed nisl arcu euismod sit amet nisi lorem etiam dolor
-                            veroeros et feugiat.</p>
-        </div>
+        {
+              spinnerShow ?
+                <div className="best-place__spinner" /> :
+                  places.map(place =>
+                    (<Place
+                      key={place.id}
+                      name={place.name}
+                      shortDescription={place.shortDescription}
+                    />))
+        }
       </section>
     );
   }

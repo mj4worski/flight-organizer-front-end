@@ -1,13 +1,4 @@
-// @flow
-import type {
-    Action,
-} from '../actions';
-import type {
-    FlightType,
-    UserType,
-} from '../api/types';
-
-export const flights = (state: Array<FlightType> = [], action: Action): Array<FlightType> => {
+export const flights = (state = [], action) => {
   switch (action.type) {
     case 'FIND_FLIGHTS':
       return [
@@ -18,7 +9,7 @@ export const flights = (state: Array<FlightType> = [], action: Action): Array<Fl
   }
 };
 
-export const user = (state: UserType = {}, action: Action): UserType => {
+export const user = (state = {}, action) => {
   switch (action.type) {
     case 'CAN_LOGIN':
       return Object.assign({}, action.user);
@@ -27,7 +18,7 @@ export const user = (state: UserType = {}, action: Action): UserType => {
   }
 };
 
-export const UI = (state: Object = {}, action: Action) => {
+export const UI = (state = {}, action) => {
   switch (action.type) {
     case 'CAN_LOGIN':
       return Object.assign({}, state, {
