@@ -16,7 +16,7 @@ const FlightList = ({ flights }) => (
 );
 
 FlightList.propTypes = {
-  flights: PropTypes.array.isRequired,
+  flights: PropTypes.array,
 };
 
 export default FlightList;
