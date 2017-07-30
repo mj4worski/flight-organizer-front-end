@@ -8,7 +8,7 @@ import FindFlights from '../components/flight/FindFlightsContainer';
 import MainPage from '../components/MainPage';
 import Login from '../components/Login';
 import history from './HistoryConfiguration';
-import Header from './Header';
+import Header from '../components/header/Header';
 import './App.scss';
 
 

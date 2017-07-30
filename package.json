@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --config jest.config.json",
     "build": "webpack",
     "start": "webpack-dev-server",
     "eslint": "./node_modules/.bin/eslint  src/**"
@@ -45,6 +45,7 @@
     "eslint-plugin-jsx-a11y": "^5.0.3",
     "eslint-plugin-react": "^7.0.1",
     "file-loader": "^0.11.1",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^20.0.4",
     "node-sass": "^4.5.3",
     "react-router": "^4.1.1",

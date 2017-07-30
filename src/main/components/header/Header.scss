@@ -1,0 +1,25 @@
+.header {
+  display: flex;
+  flex-direction: column;
+
+  &__logo {
+    margin-top: 50px;
+    display: block;
+    background: url("../../images/logo.jpg") no-repeat;
+    background-size: 100% 100%;
+    height: 400px;
+    width: 100%;
+  }
+
+  &__text {
+    padding: 240px 30% 0 30%;
+    text-align: center;
+    color: #342d6f;
+    font-family: 'Architects Daughter', cursive;
+    font-weight: 800;
+    opacity: 0.6;
+  }
+}
+
+
+

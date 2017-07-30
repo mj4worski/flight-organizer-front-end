@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render NavBar with 3 navigation links 1`] = `
+<ul
+  className="nav-bar"
+>
+  <li
+    className="nav-bar__item"
+  >
+    <a
+      className="nav-bar__item-visual"
+      href="/"
+      onClick={[Function]}
+    >
+      Strona glowna
+    </a>
+  </li>
+  <li
+    className="nav-bar__item"
+  >
+    <a
+      className="nav-bar__item-visual"
+      href="/findFlight"
+      onClick={[Function]}
+    >
+      Znajdz lot
+    </a>
+  </li>
+  <li
+    className="nav-bar__item"
+  >
+    <a
+      className="nav-bar__item-visual"
+      href="/login"
+      onClick={[Function]}
+    >
+      Logowanie
+    </a>
+  </li>
+</ul>
+`;
