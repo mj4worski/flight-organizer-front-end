@@ -13,14 +13,16 @@ class BestPlace extends Component {
 
   componentDidMount() {
     getBestPlaces().then(places => this.setState({ places }));
+    console.log(this.state.places);
   }
 
   render() {
     const spinnerShow = this.state.places.length === 0;
     const { places } = this.state;
     return (
-      <section className="best-place">
-        {
+      <div>
+        <section className="best-place">
+          {
               spinnerShow ?
                 <div className="best-place__spinner" /> :
                   places.map(place =>
@@ -30,7 +32,8 @@ class BestPlace extends Component {
                       shortDescription={place.shortDescription}
                     />))
         }
-      </section>
+        </section>
+      </div>
     );
   }
 }

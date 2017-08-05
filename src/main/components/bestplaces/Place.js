@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Place.scss';
 
-
 const Place = ({ name, shortDescription }) => (
   <div className="place">
     <h2 className="place__name">{name}</h2>

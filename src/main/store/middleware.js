@@ -1,5 +1,5 @@
 import thunk from 'redux-thunk';
 import { routerMiddleware } from 'react-router-redux';
-import history from '../app/HistoryConfiguration';
+import createBrowserHistory from 'history/createBrowserHistory';
 
-export default [thunk, routerMiddleware(history)];
+export default [thunk, routerMiddleware(createBrowserHistory())];

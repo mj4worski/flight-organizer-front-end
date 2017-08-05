@@ -4,12 +4,12 @@ import {
     Route,
 } from 'react-router-dom';
 import 'whatwg-fetch';
-import FindFlights from '../components/flight/FindFlightsContainer';
-import MainPage from '../components/MainPage';
-import Login from '../components/Login';
-import history from './HistoryConfiguration';
-import Header from '../components/header/Header';
-import './App.scss';
+import createBrowserHistory from 'history/createBrowserHistory';
+import FindFlights from './components/flight/FindFlightsContainer';
+import MainPage from './components/MainPage';
+import Login from './components/Login';
+import Header from './components/header/Header';
+import './app.scss';
 
 
 const Content = () => (
@@ -21,7 +21,7 @@ const Content = () => (
 );
 
 export default () => (
-  <Router history={history}>
+  <Router history={createBrowserHistory()}>
     <div>
       <Header />
       <Content />

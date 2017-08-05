@@ -21,8 +21,25 @@ export const checkLogin = (username, password) => {
   }).then(response => response.status === 200);
 };
 
+const getPlaceImage = (id) => {
+  const url = new URL(`http://localhost:8080/public/image/${encodeURIComponent(id)}`);
+  return fetch(url, { method: 'get', credentials: 'include' })
+        .then(respone => respone.blob())
+      .then(responseAsBlob => URL.createObjectURL(responseAsBlob));
+};
+
+const fetchImagesForPlaces = (places) => {
+  places.forEach((place) => {
+    getPlaceImage(place.imageIds[0]).then((image) => {
+      place.image = image;
+    });
+  });
+  return Promise.resolve(places);
+};
+
 export const getBestPlaces = () => {
   const url = new URL('http://localhost:8080/public/findPlaces');
   return fetch(url, { method: 'get', credentials: 'include' })
-        .then(places => places.json());
+        .then(places => places.json())
+        .then(fetchImagesForPlaces);
 };

@@ -18,7 +18,7 @@ export const user = (state = {}, action) => {
   }
 };
 
-export const UI = (state = {}, action) => {
+export const UI = (state = { }, action) => {
   switch (action.type) {
     case 'CAN_LOGIN':
       return Object.assign({}, state, {
