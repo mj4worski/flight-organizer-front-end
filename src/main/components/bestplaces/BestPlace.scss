@@ -1,17 +1,7 @@
 .best-place {
-  display: -moz-flex;
-  display: -webkit-flex;
-  display: -ms-flex;
   display: flex;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
   justify-content: space-between;
-}
 
-.best-place {
-  display: flex;
-  justify-content: center;
   &__spinner {
     margin-top: 90px;
     border: 16px solid #fd746c;

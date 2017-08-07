@@ -13,7 +13,6 @@ class BestPlace extends Component {
 
   componentDidMount() {
     getBestPlaces().then(places => this.setState({ places }));
-    console.log(this.state.places);
   }
 
   render() {
@@ -28,8 +27,7 @@ class BestPlace extends Component {
                   places.map(place =>
                     (<Place
                       key={place.id}
-                      name={place.name}
-                      shortDescription={place.shortDescription}
+                      {...place}
                     />))
         }
         </section>

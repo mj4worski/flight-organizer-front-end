@@ -3,7 +3,6 @@
   border-radius: 25px;
   height: 330px;
   width: 32%;
-  background: linear-gradient(rgba(40, 40, 111, 0.45), rgba(71, 63, 164, 0.45)), url("../../images/pic02.jpg") no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -16,18 +15,11 @@
     padding-bottom: 20px;
     font-family: 'Architects Daughter', cursive;
     font-size: 35px;
-    color: rgba(255, 201, 198, 0.77);
+    color: rgba(52, 45, 111, 0.95);
   }
 
-  &__description {
-    font-family: 'PT Sans', sans-serif;
-    font-size: 20px;
-    color: rgba(255, 201, 198, 0.77);
+  &__link {
+    text-decoration: none;
   }
 
-}
-
-.place:hover {
-  background: url("../../images/pic02.jpg") no-repeat center center;
-  background-size: cover;
 }

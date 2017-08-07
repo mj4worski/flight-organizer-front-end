@@ -21,25 +21,28 @@ export const checkLogin = (username, password) => {
   }).then(response => response.status === 200);
 };
 
-const getPlaceImage = (id) => {
-  const url = new URL(`http://localhost:8080/public/image/${encodeURIComponent(id)}`);
+const fetchImage = (place) => {
+  if (typeof place.imageIds === 'undefined' || place.imageIds.length === 0) {
+    return Promise.resolve();
+  }
+  const url = new URL(`http://localhost:8080/public/image/${encodeURIComponent(place.imageIds[0])}`);
   return fetch(url, { method: 'get', credentials: 'include' })
-        .then(respone => respone.blob())
-      .then(responseAsBlob => URL.createObjectURL(responseAsBlob));
+      .then(respone => respone.blob())
+      .then(responseAsBlob => URL.createObjectURL(responseAsBlob))
+      .then((image) => { place.image = image; });
 };
 
-const fetchImagesForPlaces = (places) => {
+const fetchImageForPlaces = (places) => {
+  const promises = [];
   places.forEach((place) => {
-    getPlaceImage(place.imageIds[0]).then((image) => {
-      place.image = image;
-    });
+    promises.push(fetchImage(place));
   });
-  return Promise.resolve(places);
+  return Promise.all(promises).then(() => Promise.resolve(places));
 };
 
 export const getBestPlaces = () => {
   const url = new URL('http://localhost:8080/public/findPlaces');
   return fetch(url, { method: 'get', credentials: 'include' })
         .then(places => places.json())
-        .then(fetchImagesForPlaces);
+        .then(fetchImageForPlaces);
 };
