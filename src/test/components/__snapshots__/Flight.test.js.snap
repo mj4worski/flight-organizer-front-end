@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Flight component with arrivalTo and departureFrom props 1`] = `
+<section>
+  <h1>
+    Znaleziony lot to:
+  </h1>
+  <p>
+    Skad : 
+    Barcelona
+  </p>
+  <p>
+    Dokad : 
+    Paris
+  </p>
+  <button
+    onClick={[Function]}
+  >
+    Rezerwacja
+  </button>
+</section>
+`;

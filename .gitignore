@@ -62,3 +62,4 @@ typings/
 /ReactJSApplication.iml
 .config
 /flight-organizer-react.iml
+/package-lock.json

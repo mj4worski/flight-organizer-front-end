@@ -2,7 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 
 const BUILD_PATH = path.resolve(`${__dirname}/build`);
-const APP_PATH = path.resolve(`${__dirname}/src`);
+const APP_PATH = path.resolve(`${__dirname}/src/main`);
 
 module.exports = {
   entry: `${APP_PATH}/index.js`,
@@ -20,11 +20,11 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /.jsx?$/,
+        test: /.js?$/,
         loader: 'babel-loader',
         exclude: /node_modules/,
         query: {
-          presets: ['es2016', 'react', 'flow'],
+          presets: ['es2015', 'react'],
           plugins: ['transform-es2015-destructuring', 'transform-object-rest-spread', ['transform-class-properties', { spec: true }]],
         },
       },

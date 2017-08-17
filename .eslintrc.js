@@ -4,12 +4,18 @@ module.exports = {
     ],
     "parser": "babel-eslint",
     "plugins": [
-        "flowtype"
+      "jest"
     ],
     "rules": {
-        "react/jsx-filename-extension": ["error", {"extensions": [".js", ".jsx"]}]
+        'react/forbid-prop-types': [1, { forbid: ['any', 'array', 'object'] }],
+        "react/jsx-filename-extension": [0, {"extensions": [".js", ".jsx"]}],
+        "jest/no-disabled-tests": "warn",
+        "jest/no-focused-tests": "error",
+        "jest/no-identical-title": "error",
+        "jest/valid-expect": "error"
     },
     "env": {
-        "browser": true
-    }
+        "browser": true,
+        "jest": true
+    },
 };

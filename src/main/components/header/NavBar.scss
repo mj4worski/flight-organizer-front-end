@@ -1,0 +1,36 @@
+.nav-bar {
+  margin: 0;
+  padding: 0;
+  height: 50px;
+  list-style-type: none;
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  background: #fd746c; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #ff9068, #fd746c); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #ff9068, #fd746c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  &__item {
+    display: flex;
+    flex: 1;
+    font-size: 24px;
+    font-family: 'Architects Daughter', cursive;
+    padding-top: 7px;
+    text-align: center;
+    &-visual {
+      flex: 1;
+      text-decoration: none;
+      color: white;
+    }
+    &-visual:hover:not(.active) {
+      color: #342d6f;
+      opacity: 0.7;
+      cursor: pointer;
+    }
+    &-selected {
+      color: #342d6f;
+      opacity: 0.7;
+    }
+  }
+}

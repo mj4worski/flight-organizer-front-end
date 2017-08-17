@@ -1,0 +1,20 @@
+.best-place {
+  display: flex;
+  justify-content: space-between;
+
+  &__spinner {
+    margin-top: 90px;
+    border: 16px solid #fd746c;
+    border-top: 16px solid #5c3fd0;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+

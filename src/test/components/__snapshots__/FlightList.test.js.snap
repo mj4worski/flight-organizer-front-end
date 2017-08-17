@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render FlightList which contains Flight component 1`] = `
+<div>
+  <section>
+    <h1>
+      Znaleziony lot to:
+    </h1>
+    <p>
+      Skad : 
+      Barcelona
+    </p>
+    <p>
+      Dokad : 
+      Paris
+    </p>
+    <button
+      onClick={[Function]}
+    >
+      Rezerwacja
+    </button>
+  </section>
+  <section>
+    <h1>
+      Znaleziony lot to:
+    </h1>
+    <p>
+      Skad : 
+      Moscow
+    </p>
+    <p>
+      Dokad : 
+      Cracow
+    </p>
+    <button
+      onClick={[Function]}
+    >
+      Rezerwacja
+    </button>
+  </section>
+</div>
+`;
+
+exports[`should render FlightList with information about non existing flights 1`] = `
+<div>
+  <p>
+    Nie znaleziono lotow
+  </p>
+</div>
+`;
