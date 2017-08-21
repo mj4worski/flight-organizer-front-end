@@ -1,12 +1,12 @@
 .header {
   display: flex;
-  flex-direction: column;
 
   &__logo {
     margin-top: 50px;
     display: block;
     background: url("../../images/logo.jpg") no-repeat;
     background-size: 100% 100%;
+    border-bottom: 5px solid rgba(#ff9068,0.5);
     height: 400px;
     width: 100%;
   }

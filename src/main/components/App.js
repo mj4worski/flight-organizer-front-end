@@ -5,26 +5,28 @@ import {
 } from 'react-router-dom';
 import 'whatwg-fetch';
 import createBrowserHistory from 'history/createBrowserHistory';
-import FindFlights from './components/flight/FindFlightsContainer';
-import MainPage from './components/MainPage';
-import Login from './components/Login';
-import Header from './components/header/Header';
-import './app.scss';
+import FindFlights from './flight/FindFlightsContainer';
+import MainPage from './MainPage';
+import Login from './Login';
+import Header from './header/Header';
+import Footer from './footer/Footer';
+import './App.scss';
 
 
 const Content = () => (
-  <section >
+  <div >
     <Route exact path="/" component={MainPage} />
     <Route path="/findFlight" component={FindFlights} />
     <Route path="/login" component={Login} />
-  </section>
+  </div>
 );
 
 export default () => (
   <Router history={createBrowserHistory()}>
-    <div>
+    <div className="app">
       <Header />
       <Content />
+      <Footer />
     </div>
   </Router>
 );

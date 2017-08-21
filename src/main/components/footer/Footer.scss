@@ -1,0 +1,46 @@
+.footer {
+  display: flex;
+  background-image: linear-gradient(to right, #ff9068, #fd746c);
+  border: 3px solid rgba(#3c2c49, 0.5);
+  min-height: 300px;
+
+}
+
+.follow-as {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  align-items: center;
+
+  &__text {
+    font-size: 32px;
+    color: #342d6f;
+    font-family: 'Architects Daughter', cursive;
+    flex: 1 1 100%;
+    text-align: center;
+  }
+
+  &__icon-container {
+    flex: 1 1 100%;
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: auto;
+    justify-content: center;
+  }
+
+  &__icon {
+    flex-basis: 40px;
+    margin: 0 15px 15px 15px;
+    fill: white;
+
+    &:hover {
+      cursor: pointer;
+      fill: #342d6f;
+    }
+  }
+}
+
+
+.contact {
+  flex: 1
+}
