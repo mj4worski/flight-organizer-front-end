@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Place component with backgroundImage as url-to-image 1`] = `
+<div
+  className="place"
+  style={
+    Object {
+      "backgroundImage": "url(url-to-image)",
+      "backgroundPosition": "center center",
+      "backgroundRepeat": "no-repeat",
+      "backgroundSize": "cover",
+    }
+  }
+>
+  <a
+    className="place__link"
+    href="#"
+    onClick={[Function]}
+  >
+    <h2
+      className="place__name"
+    >
+      Warsaw
+    </h2>
+  </a>
+</div>
+`;
+
+exports[`should render Place component with default image 1`] = `
+<div
+  className="place"
+  style={
+    Object {
+      "backgroundImage": "url(test-file-stub)",
+      "backgroundPosition": "center center",
+      "backgroundRepeat": "no-repeat",
+      "backgroundSize": "cover",
+    }
+  }
+>
+  <a
+    className="place__link"
+    href="#"
+    onClick={[Function]}
+  >
+    <h2
+      className="place__name"
+    >
+      Warsaw
+    </h2>
+  </a>
+</div>
+`;
