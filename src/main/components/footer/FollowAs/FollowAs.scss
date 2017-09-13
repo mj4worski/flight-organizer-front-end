@@ -1,0 +1,31 @@
+.follow-as {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  &__text {
+    font-size: 32px;
+    color: #342d6f;
+    font-family: 'Architects Daughter', cursive;
+    flex: 1 1 100%;
+    text-align: center;
+  }
+
+  &__icon-container {
+    display: inline-flex;
+    margin-bottom: auto;
+  }
+
+  &__icon {
+    margin: 0 15px 15px 15px;
+    fill: white;
+    height: 40px;
+    width: 40px;
+
+    &:hover {
+      cursor: pointer;
+      fill: #342d6f;
+    }
+  }
+}
