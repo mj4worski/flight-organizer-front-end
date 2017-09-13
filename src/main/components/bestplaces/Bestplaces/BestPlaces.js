@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Place from './Place';
-import { getBestPlaces } from '../../api';
-import './BestPlace.scss';
+import Place from '../Place';
+import { getBestPlaces } from '../../../api';
+import './BestPlaces.scss';
 
-class BestPlace extends Component {
+class BestPlaces extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -36,4 +36,4 @@ class BestPlace extends Component {
   }
 }
 
-export default BestPlace;
+export default BestPlaces;

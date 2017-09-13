@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import defaultImage from '../../images/pic02.jpg';
+import defaultImage from '../images/default.jpg';
 import './Place.scss';
 
 const Place = ({ name, image = defaultImage }) => {

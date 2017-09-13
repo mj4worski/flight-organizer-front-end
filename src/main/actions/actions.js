@@ -1,7 +1,7 @@
 import {
     getFlights,
     checkLogin,
-} from '../api/index';
+} from '../api';
 
 const findFlightsAction = flights => ({
   type: 'FIND_FLIGHTS',

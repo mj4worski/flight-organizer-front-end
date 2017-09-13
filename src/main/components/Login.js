@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { tryLogin } from '../actions/index';
+import { tryLogin } from '../actions';
 
 class LoginForm extends Component {
   constructor(props) {
@@ -29,11 +29,11 @@ class LoginForm extends Component {
   render() {
     return (
       <div>
-        <p> Podaj login i aktualne hasło</p>
+        <p>Sing in to Flight Organizer</p>
         <form onSubmit={this.handleSubmit}>
-          <p>Login: <input type="text" onChange={this.handleChangeLogin} /></p>
-          <p>Hasło : <input type="password" onChange={this.handleChangePassword} /></p>
-          <button>Zaloguj</button>
+          <p>Username: <input type="text" onChange={this.handleChangeLogin} /></p>
+          <p>Password : <input type="password" onChange={this.handleChangePassword} /></p>
+          <button>Sing in</button>
         </form>
       </div>
     );

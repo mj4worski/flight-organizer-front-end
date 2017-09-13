@@ -22,19 +22,19 @@ const NavBar = () => {
         to="/"
         className={cx(visualStyles, { [`${selectedStyles}`]: location.pathname === '/' })}
       >
-          Strona glowna
+          Main page
       </Link>
       <Link
         to="/findFlight"
         className={cx(visualStyles, { [`${selectedStyles}`]: location.pathname === '/findFlight' })}
       >
-          Znajdz lot
+          Find flight
       </Link>
       <Link
         to="/login"
         className={cx(visualStyles, { [`${selectedStyles}`]: location.pathname === '/login' })}
       >
-          Logowanie
+          Login
       </Link>
     </NavItemContainer>
   );

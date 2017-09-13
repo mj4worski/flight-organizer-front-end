@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MemoryRouter } from 'react-router-dom';
-import Place from '../../../main/components/bestplaces/Place';
+import Place from '../../../main/components/bestplaces/Place/Place';
 
 it('should render Place component with default image', () => {
   const component = renderer.create(

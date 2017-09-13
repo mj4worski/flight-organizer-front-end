@@ -30,11 +30,11 @@ class FindFlightForm extends Component {
 
   render() {
     return (<div>
-      <p>Znajdz swoj wymarzony lot</p>
+      <p>Find yours flights</p>
       <form onSubmit={this.handleSubmit}>
-        <p>Skad: <input type="text" onChange={this.handleChangeFrom} /></p>
-        <p>Dokad : <input type="text" onChange={this.handleChangeTo} /></p>
-        <button>Szukaj</button>
+        <p>From: <input type="text" onChange={this.handleChangeFrom} /></p>
+        <p>To : <input type="text" onChange={this.handleChangeTo} /></p>
+        <button>Search flights</button>
       </form>
     </div>);
   }

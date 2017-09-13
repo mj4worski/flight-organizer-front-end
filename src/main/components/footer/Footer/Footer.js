@@ -1,14 +1,14 @@
 import React from 'react';
 
-import FollowAs from './FollowAs';
-import Infornation from './Information';
+import FollowAs from '../FollowAs';
+import Information from '../Information';
 
 import './Footer.scss';
 
 const Footer = () => (
   <div className="footer">
     <FollowAs />
-    <Infornation />
+    <Information />
   </div>
 );
 

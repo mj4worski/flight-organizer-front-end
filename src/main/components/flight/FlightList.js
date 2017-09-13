@@ -5,7 +5,7 @@ import Flight from './Flight';
 const FlightList = ({ flights }) => (
   <div>{
         (typeof flights === 'undefined' || flights.length === 0) ?
-          <p>Nie znaleziono lotow</p> :
+          <p>Sorry, your current search result doesn't exist. Try different direction.</p> :
             flights.map(flight =>
                 (<Flight
                   key={flight.id}
