@@ -44,7 +44,7 @@ exports[`should render FlightList which contains Flight component 1`] = `
 exports[`should render FlightList with information about non existing flights 1`] = `
 <div>
   <p>
-    Nie znaleziono lotow
+    Sorry, your current search result doesn't exist. Try different direction.
   </p>
 </div>
 `;

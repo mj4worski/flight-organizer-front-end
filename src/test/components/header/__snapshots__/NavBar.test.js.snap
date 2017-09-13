@@ -12,7 +12,7 @@ exports[`should render NavBar with 3 navigation links 1`] = `
       href="/"
       onClick={[Function]}
     >
-      Strona glowna
+      Main page
     </a>
   </li>
   <li
@@ -23,7 +23,7 @@ exports[`should render NavBar with 3 navigation links 1`] = `
       href="/findFlight"
       onClick={[Function]}
     >
-      Znajdz lot
+      Find flight
     </a>
   </li>
   <li
@@ -34,7 +34,7 @@ exports[`should render NavBar with 3 navigation links 1`] = `
       href="/login"
       onClick={[Function]}
     >
-      Logowanie
+      Login
     </a>
   </li>
 </ul>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import BestPlace from '../../../main/components/bestplaces/Bestplaces/BestPlaces';
+import { BestPlaces } from '../../../main/components/bestplaces';
 
 const mockPlaceData = [{ id: 1, name: 'Place 1', image: 'Image 1' }, { id: 2, name: 'Place 2', image: 'Image 2' }];
 
@@ -13,23 +13,23 @@ jest.mock('../../../main/api', () => {
 
 describe('<BestPlaces />', () => {
   it('should render <section /> with className .best-place', () => {
-    const wrapper = shallow(<BestPlace />);
+    const wrapper = shallow(<BestPlaces />);
     expect(wrapper.find('section').hasClass('best-place')).toBe(true);
   });
 
   it('should render <div /> with className .best-place__spinner', () => {
-    const wrapper = shallow(<BestPlace />);
+    const wrapper = shallow(<BestPlaces />);
     expect(wrapper.find('div.best-place__spinner')).toHaveLength(1);
   });
 
   it('should render <BestPlaces /> with empty list of places', () => {
-    const wrapper = shallow(<BestPlace />);
+    const wrapper = shallow(<BestPlaces />);
     expect(wrapper.state('places')).toEqual(expect.arrayContaining([]));
   });
 
   it('should calls componentDidMount after render <BestPlaces />', () => {
-    const spy = jest.spyOn(BestPlace.prototype, 'componentDidMount');
-    mount(<BestPlace />);
+    const spy = jest.spyOn(BestPlaces.prototype, 'componentDidMount');
+    mount(<BestPlaces />);
     expect(spy).toHaveBeenCalled();
   });
 
@@ -37,7 +37,7 @@ describe('<BestPlaces />', () => {
   // https://stackoverflow.com/questions/45010814/react-test-with-enzyme-cannot-read-property-route-of-undefined
   it('should set in state  places fetched from service on componentDidMount', () => {
     const promise = Promise.resolve();
-    const wrapper = mount(<BestPlace />);
+    const wrapper = mount(<BestPlaces />);
     return promise.then(() => {
       expect(wrapper.state('places')).toEqual(expect.arrayContaining(mockPlaceData));
     });
