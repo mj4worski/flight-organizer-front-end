@@ -12,6 +12,9 @@ exports[`should render Place component with backgroundImage as url-to-image 1`] 
     }
   }
 >
+  <span
+    className="place__front-panel"
+  />
   <a
     className="place__link"
     href="#"
@@ -38,6 +41,9 @@ exports[`should render Place component with default image 1`] = `
     }
   }
 >
+  <span
+    className="place__front-panel"
+  />
   <a
     className="place__link"
     href="#"

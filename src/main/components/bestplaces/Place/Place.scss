@@ -3,9 +3,6 @@
   border-radius: 25px;
   height: 330px;
   width: 32%;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
   background-size: cover;
   cursor: pointer;
   position: relative;
@@ -15,7 +12,25 @@
     padding-bottom: 20px;
     font-family: 'Architects Daughter', cursive;
     font-size: 35px;
-    color: rgba(52, 45, 111, 0.95);
+    color: rgba(0, 0, 0, 0.95);
+  }
+
+  &__front-panel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(66, 61, 140, 0.85);
+    border-radius: 25px;
+
+    &:focus {
+      display: none;
+    }
+  }
+
+  &:hover .place__front-panel {
+    display: none;
   }
 
   &__link {

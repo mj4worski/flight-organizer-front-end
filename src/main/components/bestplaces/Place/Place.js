@@ -13,6 +13,7 @@ const Place = ({ name, image = defaultImage }) => {
   };
   return (
     <div className="place" style={sectionStyle}>
+      <span className="place__front-panel" />
       <Link to="#" className="place__link" >
         <h2 className="place__name">{name}</h2>
       </Link>
