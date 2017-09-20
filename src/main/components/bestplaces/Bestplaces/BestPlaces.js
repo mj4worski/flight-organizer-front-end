@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Place from '../Place';
+import Place from '../PlaceTile';
 import { getBestPlaces } from '../../../api';
 import './BestPlaces.scss';
 

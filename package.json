@@ -7,7 +7,7 @@
     "test": "jest --config jest.config.json",
     "build": "webpack",
     "start": "webpack-dev-server",
-    "eslint": "./node_modules/.bin/eslint  src/**"
+    "lint": "./node_modules/.bin/eslint  src/**"
   },
   "author": "",
   "license": "ISC",

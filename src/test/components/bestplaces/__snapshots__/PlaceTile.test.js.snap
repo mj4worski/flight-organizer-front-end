@@ -2,7 +2,7 @@
 
 exports[`should render Place component with backgroundImage as url-to-image 1`] = `
 <div
-  className="place"
+  className="place-tile"
   style={
     Object {
       "backgroundImage": "url(url-to-image)",
@@ -13,15 +13,15 @@ exports[`should render Place component with backgroundImage as url-to-image 1`] 
   }
 >
   <span
-    className="place__front-panel"
+    className="place-tile__front-panel"
   />
   <a
-    className="place__link"
+    className="place-tile__link"
     href="#"
     onClick={[Function]}
   >
     <h2
-      className="place__name"
+      className="place-tile__name"
     >
       Warsaw
     </h2>
@@ -31,7 +31,7 @@ exports[`should render Place component with backgroundImage as url-to-image 1`] 
 
 exports[`should render Place component with default image 1`] = `
 <div
-  className="place"
+  className="place-tile"
   style={
     Object {
       "backgroundImage": "url(test-file-stub)",
@@ -42,15 +42,15 @@ exports[`should render Place component with default image 1`] = `
   }
 >
   <span
-    className="place__front-panel"
+    className="place-tile__front-panel"
   />
   <a
-    className="place__link"
+    className="place-tile__link"
     href="#"
     onClick={[Function]}
   >
     <h2
-      className="place__name"
+      className="place-tile__name"
     >
       Warsaw
     </h2>

@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import defaultImage from '../images/default.jpg';
-import './Place.scss';
+import './PlaceTile.scss';
 
-const Place = ({ name, image = defaultImage }) => {
+const PlaceTile = ({ name, image }) => {
   const sectionStyle = {
     backgroundImage: `url(${image})`,
     backgroundRepeat: 'no-repeat',
@@ -12,18 +12,22 @@ const Place = ({ name, image = defaultImage }) => {
     backgroundSize: 'cover',
   };
   return (
-    <div className="place" style={sectionStyle}>
-      <span className="place__front-panel" />
-      <Link to="#" className="place__link" >
-        <h2 className="place__name">{name}</h2>
+    <div className="place-tile" style={sectionStyle}>
+      <span className="place-tile__front-panel" />
+      <Link to="#" className="place-tile__link" >
+        <h2 className="place-tile__name">{name}</h2>
       </Link>
     </div>
   );
 };
 
-Place.propTypes = {
-  name: PropTypes.string.isRequired,
-  image: PropTypes.any,
+PlaceTile.defaultProps = {
+  image: defaultImage,
 };
 
-export default Place;
+PlaceTile.propTypes = {
+  name: PropTypes.string.isRequired,
+  image: PropTypes.string,
+};
+
+export default PlaceTile;

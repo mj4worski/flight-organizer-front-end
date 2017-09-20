@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { BestPlaces } from '../../../main/components/bestplaces';
 
-const mockPlaceData = [{ id: 1, name: 'Place 1', image: 'Image 1' }, { id: 2, name: 'Place 2', image: 'Image 2' }];
+const mockPlaceData = [{ id: 1, name: 'PlaceTile 1', image: 'Image 1' }, { id: 2, name: 'PlaceTile 2', image: 'Image 2' }];
 
 jest.mock('../../../main/api', () => {
   const module = jest.genMockFromModule('../../../main/api');
