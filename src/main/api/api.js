@@ -7,18 +7,21 @@ export const getFlights = (departureFrom, arrivalTo) => {
   return fetch(url, { method: 'get', credentials: 'include' }).then(response => response.json());
 };
 
-export const checkLogin = (username, password) => {
+export const tryLogin = (username, password) => {
   const url = new URL('http://localhost:8080/login');
   const params = { username, password };
-  const formBody = Object.keys(params)
+  const body =
+      Object.keys(params)
         .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
-        .join('&');
+       .join('&');
   return fetch(url, {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: formBody,
+    body,
     credentials: 'include',
-  }).then(response => response.status === 200);
+  })
+  .then(response => response.status === 200)
+  .catch(error => ({ error }));
 };
 
 const fetchImage = (place) => {

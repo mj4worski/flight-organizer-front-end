@@ -1,1 +1,1 @@
-export { default } from './createStore';
+export { default, sagaMiddleware } from './createStore';
