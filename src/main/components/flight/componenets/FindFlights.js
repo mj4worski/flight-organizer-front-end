@@ -3,9 +3,8 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Form from './Form';
 import FlightList from './FlightList';
-import {
-    findFlights,
-} from '../../actions';
+import { findFlights } from '../actions';
+import { selectFlights } from '../reducers';
 
 const FindFlight = ({ flights, find }) => (
   <div>
@@ -15,20 +14,20 @@ const FindFlight = ({ flights, find }) => (
 );
 
 FindFlight.propTypes = {
-  flights: PropTypes.shape({
+  flights: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number,
     departureFrom: PropTypes.string,
     arrivalTo: PropTypes.string,
-  }).isRequired,
+  })).isRequired,
   find: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = ({ flights }) => ({
-  flights,
+const mapStateToProps = state => ({
+  flights: selectFlights(state),
 });
 
-const mapDispatchToProps = () => ({
+const mapDispatchToProps = {
   find: findFlights,
-});
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(FindFlight);

@@ -3,20 +3,20 @@
 exports[`should render Flight component with arrivalTo and departureFrom props 1`] = `
 <section>
   <h1>
-    Znaleziony lot to:
+    Founded flights:
   </h1>
   <p>
-    Skad : 
+    From : 
     Barcelona
   </p>
   <p>
-    Dokad : 
+    To : 
     Paris
   </p>
   <button
     onClick={[Function]}
   >
-    Rezerwacja
+    Book It
   </button>
 </section>
 `;

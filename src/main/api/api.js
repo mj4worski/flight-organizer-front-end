@@ -1,10 +1,11 @@
 import 'whatwg-fetch';
 
-export const getFlights = (departureFrom, arrivalTo) => {
+export const fetchFlights = (departureFrom, arrivalTo) => {
   const url = new URL('http://localhost:8080/findFlights');
   const params = { departureFrom, arrivalTo };
   Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
-  return fetch(url, { method: 'get', credentials: 'include' }).then(response => response.json());
+  return fetch(url, { method: 'get', credentials: 'include' })
+      .then(response => response.json());
 };
 
 export const tryLogin = (username, password) => {
