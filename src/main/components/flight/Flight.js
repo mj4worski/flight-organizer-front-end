@@ -11,7 +11,10 @@ const Flight = ({ flight }) => (
 );
 
 Flight.propTypes = {
-  flight: PropTypes.object.isRequired,
+  flight: PropTypes.shape({
+    departureFrom: PropTypes.string,
+    arrivalTo: PropTypes.string,
+  }).isRequired,
 };
 
 export default Flight;

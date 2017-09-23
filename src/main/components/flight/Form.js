@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-class FindFlightForm extends Component {
+class Form extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,15 +17,11 @@ class FindFlightForm extends Component {
   };
 
   handleChangeFrom = (event) => {
-    if (event.target instanceof HTMLInputElement) {
-      this.setState({ from: event.target.value });
-    }
+    this.setState({ from: event.target.value });
   };
 
   handleChangeTo = (event) => {
-    if (event.target instanceof HTMLInputElement) {
-      this.setState({ to: event.target.value });
-    }
+    this.setState({ to: event.target.value });
   };
 
   render() {
@@ -40,9 +36,9 @@ class FindFlightForm extends Component {
   }
 }
 
-FindFlightForm.propTypes = {
+Form.propTypes = {
   onClick: PropTypes.func.isRequired,
 };
 
-export default FindFlightForm;
+export default Form;
 
