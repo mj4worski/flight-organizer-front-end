@@ -1,5 +1,5 @@
 import {
-    getBestPlaces,
+    fetchBestPlaces,
     tryLogin,
     fetchFlights,
 } from './api';
@@ -7,5 +7,5 @@ import {
 export {
     fetchFlights,
     tryLogin,
-    getBestPlaces,
+    fetchBestPlaces,
 };

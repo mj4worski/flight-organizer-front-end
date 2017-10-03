@@ -31,22 +31,22 @@ const fetchImage = (place) => {
   }
   const url = new URL(`http://localhost:8080/public/image/${encodeURIComponent(place.imageIds[0])}`);
   return fetch(url, { method: 'get', credentials: 'include' })
-      .then(respone => respone.blob())
+      .then(response => response.blob())
       .then(responseAsBlob => URL.createObjectURL(responseAsBlob))
       .then((image) => { place.image = image; });
 };
 
-const fetchImageForPlaces = (places) => {
+const fetchImageForPlaces = (bestPlaces) => {
   const promises = [];
-  places.forEach((place) => {
+  bestPlaces.forEach((place) => {
     promises.push(fetchImage(place));
   });
-  return Promise.all(promises).then(() => Promise.resolve(places));
+  return Promise.all(promises).then(() => Promise.resolve(bestPlaces));
 };
 
-export const getBestPlaces = () => {
+export const fetchBestPlaces = () => {
   const url = new URL('http://localhost:8080/public/findPlaces');
   return fetch(url, { method: 'get', credentials: 'include' })
-        .then(places => places.json())
+        .then(bestPlaces => bestPlaces.json())
         .then(fetchImageForPlaces);
 };
