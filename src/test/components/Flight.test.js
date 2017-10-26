@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Flight from '../../main/components/flight/Flight';
+import Flight from '../../main/components/flight/componenets/Flight';
 
 it('should render Flight component with arrivalTo and departureFrom props', () => {
   const flight = {

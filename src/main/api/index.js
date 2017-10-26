@@ -1,11 +1,11 @@
 import {
-    getBestPlaces,
-    checkLogin,
-    getFlights,
+    fetchBestPlaces,
+    tryLogin,
+    fetchFlights,
 } from './api';
 
 export {
-    getFlights,
-    checkLogin,
-    getBestPlaces,
+    fetchFlights,
+    tryLogin,
+    fetchBestPlaces,
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import FindFlights from './flight/FindFlightsContainer';
+import { FindFlights } from './flight';
 import { BestPlaces } from './bestplaces';
 import Login from './Login';
 

@@ -4,38 +4,38 @@ exports[`should render FlightList which contains Flight component 1`] = `
 <div>
   <section>
     <h1>
-      Znaleziony lot to:
+      Founded flights:
     </h1>
     <p>
-      Skad : 
+      From : 
       Barcelona
     </p>
     <p>
-      Dokad : 
+      To : 
       Paris
     </p>
     <button
       onClick={[Function]}
     >
-      Rezerwacja
+      Book It
     </button>
   </section>
   <section>
     <h1>
-      Znaleziony lot to:
+      Founded flights:
     </h1>
     <p>
-      Skad : 
+      From : 
       Moscow
     </p>
     <p>
-      Dokad : 
+      To : 
       Cracow
     </p>
     <button
       onClick={[Function]}
     >
-      Rezerwacja
+      Book It
     </button>
   </section>
 </div>

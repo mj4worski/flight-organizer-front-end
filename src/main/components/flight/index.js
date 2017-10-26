@@ -1,3 +1,6 @@
-// @ flow
-export { default as FlightList } from './FlightList';
-export { default as FindFlightsFrom } from './FindFlightsForm';
+export { default as FindFlights } from './componenets/FindFlights';
+export { watchFindFlights } from './sagas';
+export {
+    flights as flightsReducer,
+    selectFlights,
+} from './reducers';

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { tryLogin } from '../actions';
+import { logIn } from './actions';
 
-class LoginForm extends Component {
+class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -15,7 +15,10 @@ class LoginForm extends Component {
   handleSubmit = (e) => {
     const { onClick } = this.props;
     e.preventDefault();
-    onClick(this.state.login, this.state.password);
+    onClick({
+      login: this.state.login,
+      password: this.state.password,
+    });
   };
 
   handleChangeLogin= (event) => {
@@ -40,11 +43,8 @@ class LoginForm extends Component {
   }
 }
 
-LoginForm.propTypes = {
+Login.propTypes = {
   onClick: PropTypes.func.isRequired,
 };
 
-export default connect(
-    null,
-    { onClick: tryLogin },
-)(LoginForm);
+export default connect(null, { onClick: logIn })(Login);

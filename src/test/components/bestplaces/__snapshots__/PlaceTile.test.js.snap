@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render Place component with backgroundImage as url-to-image 1`] = `
+exports[`should render PlaceTile component with backgroundImage as url-to-image 1`] = `
 <div
   className="place-tile"
   style={
@@ -29,7 +29,7 @@ exports[`should render Place component with backgroundImage as url-to-image 1`] 
 </div>
 `;
 
-exports[`should render Place component with default image 1`] = `
+exports[`should render PlaceTile component with default image 1`] = `
 <div
   className="place-tile"
   style={

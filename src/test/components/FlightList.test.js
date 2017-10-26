@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import FlightList from '../../main/components/flight/FlightList';
+import FlightList from '../../main/components/flight/componenets/FlightList';
 
 it('should render FlightList with information about non existing flights', () => {
   const component = renderer.create(

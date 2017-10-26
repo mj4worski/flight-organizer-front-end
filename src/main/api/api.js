@@ -1,24 +1,28 @@
 import 'whatwg-fetch';
 
-export const getFlights = (departureFrom, arrivalTo) => {
+export const fetchFlights = (departureFrom, arrivalTo) => {
   const url = new URL('http://localhost:8080/findFlights');
   const params = { departureFrom, arrivalTo };
   Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
-  return fetch(url, { method: 'get', credentials: 'include' }).then(response => response.json());
+  return fetch(url, { method: 'get', credentials: 'include' })
+      .then(response => response.json());
 };
 
-export const checkLogin = (username, password) => {
+export const tryLogin = (username, password) => {
   const url = new URL('http://localhost:8080/login');
   const params = { username, password };
-  const formBody = Object.keys(params)
+  const body =
+      Object.keys(params)
         .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
-        .join('&');
+       .join('&');
   return fetch(url, {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: formBody,
+    body,
     credentials: 'include',
-  }).then(response => response.status === 200);
+  })
+  .then(response => response.status === 200)
+  .catch(error => ({ error }));
 };
 
 const fetchImage = (place) => {
@@ -27,22 +31,22 @@ const fetchImage = (place) => {
   }
   const url = new URL(`http://localhost:8080/public/image/${encodeURIComponent(place.imageIds[0])}`);
   return fetch(url, { method: 'get', credentials: 'include' })
-      .then(respone => respone.blob())
+      .then(response => response.blob())
       .then(responseAsBlob => URL.createObjectURL(responseAsBlob))
       .then((image) => { place.image = image; });
 };
 
-const fetchImageForPlaces = (places) => {
+const fetchImageForPlaces = (bestPlaces) => {
   const promises = [];
-  places.forEach((place) => {
+  bestPlaces.forEach((place) => {
     promises.push(fetchImage(place));
   });
-  return Promise.all(promises).then(() => Promise.resolve(places));
+  return Promise.all(promises).then(() => Promise.resolve(bestPlaces));
 };
 
-export const getBestPlaces = () => {
+export const fetchBestPlaces = () => {
   const url = new URL('http://localhost:8080/public/findPlaces');
   return fetch(url, { method: 'get', credentials: 'include' })
-        .then(places => places.json())
+        .then(bestPlaces => bestPlaces.json())
         .then(fetchImageForPlaces);
 };

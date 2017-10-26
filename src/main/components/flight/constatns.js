@@ -1,0 +1,2 @@
+export const FIND_FLIGHTS = 'FIND_FLIGHTS';
+export const FLIGHTS_RESULT = 'FLIGHTS_RESULT';

@@ -1,6 +1,7 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
-import { BestPlaces } from '../../../main/components/bestplaces';
+import renderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
+import { BestPlaces } from '../../../main/components/bestplaces/components/BestPlaces';
 
 const mockPlaceData = [{ id: 1, name: 'PlaceTile 1', image: 'Image 1' }, { id: 2, name: 'PlaceTile 2', image: 'Image 2' }];
 
@@ -10,36 +11,37 @@ jest.mock('../../../main/api', () => {
   return module;
 });
 
+const fetchBestPlacesMock = jest.fn();
 
 describe('<BestPlaces />', () => {
-  it('should render <section /> with className .best-place', () => {
-    const wrapper = shallow(<BestPlaces />);
-    expect(wrapper.find('section').hasClass('best-place')).toBe(true);
+  it('should render <BestPlaces /> without PlaceTitle components', () => {
+    const component = renderer.create(<BestPlaces fetchBestPlaces={fetchBestPlacesMock} />);
+    const tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
   });
 
-  it('should render <div /> with className .best-place__spinner', () => {
-    const wrapper = shallow(<BestPlaces />);
-    expect(wrapper.find('div.best-place__spinner')).toHaveLength(1);
+  it('should calls fetchBestPlaces after render', () => {
+    shallow(<BestPlaces fetchBestPlaces={fetchBestPlacesMock} />);
+    expect(fetchBestPlacesMock).toHaveBeenCalled();
   });
 
-  it('should render <BestPlaces /> with empty list of places', () => {
-    const wrapper = shallow(<BestPlaces />);
-    expect(wrapper.state('places')).toEqual(expect.arrayContaining([]));
-  });
-
-  it('should calls componentDidMount after render <BestPlaces />', () => {
-    const spy = jest.spyOn(BestPlaces.prototype, 'componentDidMount');
-    mount(<BestPlaces />);
-    expect(spy).toHaveBeenCalled();
-  });
-
-  // Issues:: Regarding to React Router 4 and Enzyme
-  // https://stackoverflow.com/questions/45010814/react-test-with-enzyme-cannot-read-property-route-of-undefined
-  it('should set in state  places fetched from service on componentDidMount', () => {
-    const promise = Promise.resolve();
-    const wrapper = mount(<BestPlaces />);
-    return promise.then(() => {
-      expect(wrapper.state('places')).toEqual(expect.arrayContaining(mockPlaceData));
-    });
+  it('should render <BestPlaces /> with 2 PlaceTile components', () => {
+    const bestPlacesData = [
+      {
+        id: 1,
+        name: 'FirstPlace',
+        image: 'SomeImage',
+      },
+      {
+        id: 2,
+        name: 'SecondPlace',
+        image: 'SomeImage',
+      },
+    ];
+    const wrapper = shallow(<BestPlaces
+      fetchBestPlaces={fetchBestPlacesMock}
+      bestPlaces={bestPlacesData}
+    />);
+    expect(wrapper.find('PlaceTile')).toHaveLength(2);
   });
 });

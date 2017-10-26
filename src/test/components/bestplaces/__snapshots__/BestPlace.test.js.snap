@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<BestPlaces /> should render <BestPlaces /> without PlaceTitle components 1`] = `
+<div>
+  <section
+    className="best-place"
+  >
+    <div
+      className="best-place__spinner"
+    />
+  </section>
+</div>
+`;
